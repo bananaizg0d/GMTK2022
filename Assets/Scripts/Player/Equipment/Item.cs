@@ -1,25 +1,18 @@
 using UnityEngine;
 using UnityEngine.Animations;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class Item : MonoBehaviour
 {
-    ParentConstraint parentConstraint;
     [Header("Item")]
-    [SerializeField] float additionalTossForce;
     [SerializeField] float tossAngularVelocity;
     [SerializeField] float holdingOffsetX;
 
-
-
-    protected Rigidbody2D rb;
     protected Collider2D col;
     protected EquipmentSystem character;
     internal GameObject hintObject;
 
     protected virtual void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
     }
     public void WasEquippedBy(EquipmentSystem character)
@@ -29,20 +22,15 @@ public class Item : MonoBehaviour
         transform.SetParent(character.itemHolder.transform);
         transform.localPosition = Vector2.zero.WhereX(holdingOffsetX);
         transform.localEulerAngles = Vector2.zero;
-        rb.isKinematic = true;
-        rb.velocity *= 0;
-        rb.angularVelocity *= 0;
         OnEquip();
     }
-    public void WasTossedAway(float force)
+    public void WasTossedAway()
     {
         OnToss();
         col.enabled = true;
         transform.SetParent(null);
-        rb.isKinematic = false;
-        rb.AddForce(transform.right * (force + additionalTossForce), ForceMode2D.Impulse);
+        transform.position = character.transform.position.AddTo(y: -1);
         transform.rotation = Quaternion.identity;
-        rb.angularVelocity = tossAngularVelocity;
         character = null;
     }
     protected virtual void OnEquip()

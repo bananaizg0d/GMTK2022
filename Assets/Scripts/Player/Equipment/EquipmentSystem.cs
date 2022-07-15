@@ -4,7 +4,6 @@ using System.Linq;
 public class EquipmentSystem : MonoBehaviour, IFreezible
 {
     [SerializeField] internal Transform itemHolder;
-    [SerializeField] float tossForce = 2;
 
     [HideInInspector]
     public string holder;
@@ -14,9 +13,28 @@ public class EquipmentSystem : MonoBehaviour, IFreezible
 
     internal Animator animator;
 
+    bool eButtonInput;
+
+    Vector3 mouseDir;
+
     public virtual void Awake()
     {
         animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+            Equip();
+        if (Input.GetKeyDown(KeyCode.G))
+            Toss();
+        if (Input.GetMouseButtonDown(0))
+            Use();
+        if (Input.GetMouseButtonUp(0))
+            StopUsing();
+
+        mouseDir = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Aim(mouseDir);
     }
 
     protected virtual void OnEnable()
@@ -50,7 +68,7 @@ public class EquipmentSystem : MonoBehaviour, IFreezible
             Debug.Log("No item equipped!");
             return;
         }
-        currentItem.WasTossedAway(tossForce);
+        currentItem.WasTossedAway();
         currentItem = null;
     }
     public void SetItem(Item item)

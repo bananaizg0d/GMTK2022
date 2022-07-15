@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Automatic : Weapon
+public class Gun : Weapon
 {
     [Header("Pistol")]
     public bool isAuto = true;
@@ -12,11 +12,6 @@ public class Automatic : Weapon
     Coroutine shooting;
     public override void Use()
     {
-        if (currentBullets == 0)
-        {
-            src.PlayOneShot(emptyMagSFX);
-            return;
-        }
 
         if (!isAuto)
         {
@@ -30,36 +25,35 @@ public class Automatic : Weapon
     }
     public override void StopUsing()
     {
-        if (shooting != null) 
+        if (shooting != null)
             StopCoroutine(shooting);
         shooting = null;
     }
 
     IEnumerator AutoShoot(float delay)
     {
-        while (currentBullets > 0)
+        while (true)
         {
             SingleShot();
+            src.PlayOneShot(emptyMagSFX);
             yield return new WaitForSeconds(delay);
         }
-
-        src.PlayOneShot(emptyMagSFX);
     }
 
     protected override void OnEquip()
     {
-        if (isAuto)
+/*        if (isAuto)
             character.animator.SetBool("isHoldingRifle", true);
         else
-            character.animator.SetBool("isHoldingPistol", true);
+            character.animator.SetBool("isHoldingPistol", true);*/
     }
 
     protected override void OnToss()
     {
         StopAllCoroutines();
-        if (isAuto)
+/*        if (isAuto)
             character.animator.SetBool("isHoldingRifle", false);
         else
-            character.animator.SetBool("isHoldingPistol", false);
+            character.animator.SetBool("isHoldingPistol", false);*/
     }
 }

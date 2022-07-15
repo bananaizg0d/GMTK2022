@@ -4,18 +4,18 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D), typeof(AudioSource))]
 public class Bullet : MonoBehaviour
 {
+    public EquipmentSystem holder;
+    
     [SerializeField] ParticleSystem onDestroyEffect, onDamageEffect;
     [SerializeField] AudioClip onDestroySound, onDamageSound;
 
-    [SerializeField] SpriteRenderer sr;
+    [SerializeField] SpriteRenderer spriteRend;
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] AudioSource src;
-
+    [SerializeField] AudioSource audioSrc;
 
     [HideInInspector] public int damage = 10;
     [HideInInspector] public float speed = 30f;
     [HideInInspector] public float gravityScale = 0f;
-    [HideInInspector] public EquipmentSystem holder;
 
     bool collided;
 
@@ -27,12 +27,18 @@ public class Bullet : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.isTrigger || collided) return;
+        if (collision.isTrigger || collided)
+            return;
+
+        collision.TryGetComponent(out EquipmentSystem es);
+
+        if (es == holder)
+            return;
 
         collided = true;
 
-        if (sr != null)
-            sr.enabled = false;
+        if (spriteRend != null)
+            spriteRend.enabled = false;
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
         transform.SetParent(collision.transform);
@@ -60,14 +66,14 @@ public class Bullet : MonoBehaviour
             particleSystem = onDestroyEffect;
             soundEffect = onDestroySound;
         }
-        StartCoroutine(PlayEffects(particleSystem, soundEffect));
+        //StartCoroutine(PlayEffects(particleSystem, soundEffect));
     }
 
     IEnumerator PlayEffects(ParticleSystem particleSystem, AudioClip soundEffect)
     {
         particleSystem.Play();
-        src.clip = soundEffect;
-        src.Play();
+        audioSrc.clip = soundEffect;
+        audioSrc.Play();
 
         yield return null;
         yield return new WaitWhile(() => particleSystem.isPlaying);
