@@ -77,23 +77,23 @@ public class DiceScript : MonoBehaviour
         {
             //player speed up for 5 secs
         }
-        if (powerRandomizer == 2)
+        else if (powerRandomizer == 2)
         {
             //player damage/fire rate up for 5 secs
         }
-        if (powerRandomizer == 3)
+        else if (powerRandomizer == 3)
         {
             //shoot in every direction
         }
-        if (powerRandomizer == 4)
+        else if (powerRandomizer == 4)
         {
             //unlimited dash/defensive ability for 5 secs
         }
-        if (powerRandomizer == 5)
+        else if (powerRandomizer == 5)
         {
             //player hitbox decreased for 5 secs
         }
-        if (powerRandomizer == 6)
+        else if (powerRandomizer == 6)
         {
             //something cool
         }
@@ -107,23 +107,23 @@ public class DiceScript : MonoBehaviour
         {
             //player speed down for 5 secs
         }
-        if (powerRandomizer == 2)
+        else if (powerRandomizer == 2)
         {
             //player damage/fire rate down for 5 secs
         }
-        if (powerRandomizer == 3)
+        else if (powerRandomizer == 3)
         {
             //enemy bullets increase??
         }
-        if (powerRandomizer == 4)
+        else if (powerRandomizer == 4)
         {
             //no dash/defensive ability for 5 secs
         }
-        if (powerRandomizer == 5)
+        else if (powerRandomizer == 5)
         {
             //player hitbox increased for 5 secs
         }
-        if (powerRandomizer == 6)
+        else if (powerRandomizer == 6)
         {
             //something uncool
         }
