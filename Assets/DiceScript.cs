@@ -19,17 +19,14 @@ public class DiceScript : MonoBehaviour
     private void Start()
     {
         diceCycle = diceCD + diceHitZone + diceStartZone;
+
+        InvokeRepeating(nameof(DiceStart), diceCD, diceCycle);
+
+        InvokeRepeating(nameof(CheckSuccess), diceCycle, diceCycle);
     }
 
     void Update()
     {
-        if (dicable)
-        {
-            InvokeRepeating(nameof(DiceStart), diceCD, diceCycle);
-        }
-
-        InvokeRepeating(nameof(CheckSuccess), diceCycle, diceCycle);
-
         if (diceHitable && Input.GetKeyDown(KeyCode.H))
         {
             Debug.Log("success");
