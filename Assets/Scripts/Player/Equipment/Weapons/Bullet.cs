@@ -4,8 +4,8 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D), typeof(AudioSource))]
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] ParticleSystem onDestroyEffect, onDamageEffect;
-    [SerializeField] AudioClip onDestroySound, onDamageSound;
+    [SerializeField] ParticleSystem onHitObstaclePS, onHitBodyPS;
+    [SerializeField] AudioClip onHitObstacleAudio, onHitBodyAudio;
 
     [SerializeField] protected Rigidbody2D rb;
     [SerializeField] SpriteRenderer spriteRend;
@@ -49,17 +49,14 @@ public class Bullet : MonoBehaviour
         rb.isKinematic = true;
         transform.SetParent(collision.transform);
 
-        ParticleSystem particleSystem;
-        AudioClip soundEffect;
+        bool isStaticObject = RegisterHit(collision);
 
-        OnHitObstacle(collision);
-
-        //StartCoroutine(PlayEffects(particleSystem, soundEffect));
+        //StartCoroutine(PlayEffects(isStaticObject));
 
         Destroy(gameObject);
     }
 
-    protected virtual void OnHitObstacle(Collider2D collision)
+    protected virtual bool RegisterHit(Collider2D collision)
     {
         if (collision.TryGetComponent(out Rigidbody2D otherRB))
         {
@@ -70,16 +67,34 @@ public class Bullet : MonoBehaviour
         {
             health.TakeDamage(damage);
         }
+
+        return health != null && health.isStatic;
     }
 
-    IEnumerator PlayEffects(ParticleSystem particleSystem, AudioClip soundEffect)
+
+
+    IEnumerator PlayEffects(bool isStatic)
     {
-        particleSystem.Play();
-        audioSrc.clip = soundEffect;
+        ParticleSystem ps;
+        AudioClip sfx;
+
+        if (isStatic)
+        {
+            ps = onHitObstaclePS;
+            sfx = onHitObstacleAudio;
+        }
+        else
+        {
+            ps = onHitBodyPS;
+            sfx = onHitBodyAudio;
+        }
+
+        ps.Play();
+        audioSrc.clip = sfx;
         audioSrc.Play();
 
         yield return null;
-        yield return new WaitWhile(() => particleSystem.isPlaying);
+        yield return new WaitWhile(() => ps.isPlaying);
 
         Destroy(gameObject);
     }

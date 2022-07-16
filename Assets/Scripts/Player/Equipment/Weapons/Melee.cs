@@ -25,7 +25,6 @@ public class Melee : Item
     }
     public override void Use()
     {
-        character.animator.SetTrigger("Attacked");
         src.PlayOneShot(onAirHit, 1);
     }
 

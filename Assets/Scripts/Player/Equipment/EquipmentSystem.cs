@@ -11,16 +11,7 @@ public class EquipmentSystem : MonoBehaviour, IFreezible
     protected List<Item> itemsToPick;
     protected Item currentItem;
 
-    internal Animator animator;
-
-    bool eButtonInput;
-
     Vector3 mouseDir;
-
-    public virtual void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
 
     void Update()
     {
@@ -57,7 +48,7 @@ public class EquipmentSystem : MonoBehaviour, IFreezible
             Toss();
         }
 
-        currentItem = itemsToPick.Last();
+        currentItem = GetBestItem();
         currentItem.WasEquippedBy(this);
     }
 
@@ -111,6 +102,27 @@ public class EquipmentSystem : MonoBehaviour, IFreezible
             return;
 
         currentItem.Aim(aimDirection);
+    }
+
+    public Item GetBestItem()
+    {
+        Item bestItem = null;
+        float bestScore = -Mathf.Infinity;
+        foreach (var item in itemsToPick)
+        {
+            var dist = Vector3.Distance(transform.position, item.transform.position);
+            var dir = (item.transform.position - transform.position).normalized;
+            var dot = Vector3.Dot(transform.forward, dir);
+
+            var currentScore = 1 / dist * dot;
+            if (currentScore > bestScore)
+            {
+                bestItem = item;
+                bestScore = currentScore;
+            }
+        }
+
+        return bestItem;
     }
 
     protected virtual void OnSetItem(Item item) { }

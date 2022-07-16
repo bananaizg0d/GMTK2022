@@ -4823,8 +4823,8 @@ GameObject:
   - component: {fileID: 4953967475146965041}
   - component: {fileID: 4953967475146965038}
   - component: {fileID: 4953967475146965039}
-  - component: {fileID: 4953967475146965036}
   - component: {fileID: 6660265168246533333}
+  - component: {fileID: 4953967475146965036}
   m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
@@ -4966,29 +4966,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4953967475146965036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4953967475146965037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7b6c3b271bed34439b86aabcb65b914, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  holder: {fileID: 0}
-  onDestroyEffect: {fileID: 4953967475109260649}
-  onDamageEffect: {fileID: 4953967475109260649}
-  onDestroySound: {fileID: 0}
-  onDamageSound: {fileID: 0}
-  spriteRend: {fileID: 4953967475412206547}
-  rb: {fileID: 4953967475146965038}
-  audioSrc: {fileID: 4953967475146965039}
-  damage: 10
-  speed: 30
-  gravityScale: 0
 --- !u!58 &6660265168246533333
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5005,6 +4982,25 @@ CircleCollider2D:
   m_Offset: {x: 0.006213337, y: 0}
   serializedVersion: 2
   m_Radius: 0.23795673
+--- !u!114 &4953967475146965036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953967475146965037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b6c3b271bed34439b86aabcb65b914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDestroyEffect: {fileID: 4953967475109260649}
+  onDamageEffect: {fileID: 4953967475109260649}
+  onDestroySound: {fileID: 0}
+  onDamageSound: {fileID: 0}
+  rb: {fileID: 4953967475146965038}
+  spriteRend: {fileID: 4953967475412206547}
+  audioSrc: {fileID: 4953967475146965039}
 --- !u!1 &4953967475412206545
 GameObject:
   m_ObjectHideFlags: 0

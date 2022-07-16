@@ -5,6 +5,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] float InvulnerabilityAfterHit;
     public int maxHealth;
+    public bool isStatic;
     public int currentHealth { get; private set; }
 
     public bool isDead { get; private set; }

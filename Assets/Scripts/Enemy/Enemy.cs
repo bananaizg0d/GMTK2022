@@ -4,10 +4,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] AIPath aiPath;
+    [SerializeField] float stunOnDamageTime;
     public void OnDamage()
     {
         aiPath.canMove = false;
-        Invoke(nameof(CanMove), 0.5f);
+        Invoke(nameof(CanMove), stunOnDamageTime);
     }
 
     void CanMove()
