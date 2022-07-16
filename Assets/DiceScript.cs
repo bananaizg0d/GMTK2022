@@ -25,7 +25,7 @@ public class DiceScript : MonoBehaviour
         diceCycle = diceCD + diceHitZone + diceStartZone;
 
         StartCoroutine(DiceNumerator());
-        StartCoroutine(Check4Success());
+        //StartCoroutine(Check4Success());
 
         //InvokeRepeating(nameof(DiceStart), diceCD, diceCycle);
         //InvokeRepeating(nameof(CheckSuccess), diceCycle, diceCycle);
@@ -49,15 +49,15 @@ public class DiceScript : MonoBehaviour
             yield return new WaitForSeconds(diceCycle);
         }
     }
-    IEnumerator Check4Success()
-    {
-        yield return new WaitForSeconds(diceCycle);
-        while (true)
-        {
-            CheckSuccess();
-            yield return new WaitForSeconds(diceCycle);
-        }
-    }
+    //IEnumerator Check4Success()
+    //{
+    //    yield return new WaitForSeconds(diceCycle);
+    //    while (true)
+    //    {
+    //        CheckSuccess();
+    //        yield return new WaitForSeconds(diceCycle);
+    //    }
+    //}
 
     public void LevelStart() => dicable = true;
 
@@ -75,6 +75,7 @@ public class DiceScript : MonoBehaviour
     public void DiceEnd()
     {
         diceHitable = false;
+        CheckSuccess();
     }
 
     public void CheckSuccess()
