@@ -64,30 +64,34 @@ public class DiceScript : MonoBehaviour
     public void DiceStart()
     {
         Invoke(nameof(DiceHitZone), diceStartZone);
+        Debug.LogError("started");
     }
 
     public void DiceHitZone()
     {
         Invoke(nameof(DiceEnd), diceHitZone);
         diceHitable = true;
+        Debug.LogError("hitZone");
+
     }
 
     public void DiceEnd()
     {
         diceHitable = false;
         CheckSuccess();
+        Debug.LogError("end");
     }
 
     public void CheckSuccess()
     {
         if (diceSucceded)
         {
-            Debug.Log("success");
+            Debug.LogError("success");
             Buff();
         }
         else if (!diceSucceded)
         {
-            Debug.Log("failed");
+            Debug.LogError("failed");
             Debuff();
         }
         diceSucceded = false;
