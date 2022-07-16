@@ -38,7 +38,7 @@ public class DiceScript : MonoBehaviour
 
     void Update()
     {
-        if (diceHitable && Input.GetKeyDown(KeyCode.H))
+        if (diceHitable && Input.GetKeyDown(KeyCode.Mouse1))
         {
             diceSucceded = true;
         }
@@ -73,7 +73,7 @@ public class DiceScript : MonoBehaviour
     public void DiceStart()
     {
         Invoke(nameof(DiceHitZone), diceStartZone);
-        Debug.LogError("started");
+        //Debug.LogError("started");
         DiceSlider.GetComponent<TimeBar>().countDown = false;
 
     }
@@ -82,7 +82,7 @@ public class DiceScript : MonoBehaviour
     {
         Invoke(nameof(DiceEnd), diceHitZone);
         diceHitable = true;
-        Debug.LogError("hitZone");
+        //Debug.LogError("hitZone");
 
     }
 
@@ -90,7 +90,7 @@ public class DiceScript : MonoBehaviour
     {
         diceHitable = false;
         CheckSuccess();
-        Debug.LogError("end");
+        //Debug.LogError("end");
         DiceSlider.GetComponent<TimeBar>().countDown = true;
 
     }
@@ -99,12 +99,12 @@ public class DiceScript : MonoBehaviour
     {
         if (diceSucceded)
         {
-            Debug.LogError("success");
+            //Debug.LogError("success");
             Buff();
         }
         else if (!diceSucceded)
         {
-            Debug.LogError("failed");
+            //Debug.LogError("failed");
             Debuff();
         }
         diceSucceded = false;
