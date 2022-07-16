@@ -1,37 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ExitScript : MonoBehaviour
 {
-    public GameObject[] enemies;
-    void Start()
-    {
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+    [SerializeField] BoxCollider2D coll;
+    [SerializeField] SpriteRenderer sr;
+    AIManager aiManager;
 
+    void Awake()
+    {
+        aiManager = FindObjectOfType<AIManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnEnable()
     {
-
-        if (enemies.Length <= 0)
-        {
-            enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
-
-        }
+        aiManager.onEnemiesDie += OpenExit;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnDisable()
     {
-        if (collision.CompareTag("Player"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+        aiManager.onEnemiesDie -= OpenExit;
     }
 
+    void OpenExit()
+    {
+        coll.isTrigger = true;
+        sr.color = Color.green;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag != TopDownMovement.PLAYERTAG)
+            return;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
