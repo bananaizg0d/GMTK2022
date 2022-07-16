@@ -2733,6 +2733,7 @@ GameObject:
   - component: {fileID: 1604206090}
   - component: {fileID: 1604206092}
   - component: {fileID: 1604206095}
+  - component: {fileID: 1604206096}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -2753,7 +2754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InvulnerabilityAfterHit: 0
-  maxHealth: 0
+  maxHealth: 100
   isStatic: 0
   _OnRegisterHit:
     m_PersistentCalls:
@@ -2782,6 +2783,7 @@ Transform:
   - {fileID: 681748122}
   - {fileID: 15018733}
   - {fileID: 713281085}
+  - {fileID: 1857435763}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2850,6 +2852,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemHolder: {fileID: 713281085}
   holder: 
+--- !u!114 &1604206096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604206089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e9d130f49a95f468067f8a55702cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCollider: {fileID: 1604206093}
 --- !u!1 &1815386293
 GameObject:
   m_ObjectHideFlags: 0
@@ -2974,11 +2989,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1604206091}
     m_Modifications:
     - target: {fileID: 183399772134898292, guid: 566f94a98d76a7c4e9e7748e95d0a808, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 183399772134898292, guid: 566f94a98d76a7c4e9e7748e95d0a808, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2998,15 +3013,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 183399772134898292, guid: 566f94a98d76a7c4e9e7748e95d0a808, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 183399772134898292, guid: 566f94a98d76a7c4e9e7748e95d0a808, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 183399772134898292, guid: 566f94a98d76a7c4e9e7748e95d0a808, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 183399772134898292, guid: 566f94a98d76a7c4e9e7748e95d0a808, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3024,8 +3039,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: RandomDiceObject
       objectReference: {fileID: 0}
+    - target: {fileID: 183399772134898299, guid: 566f94a98d76a7c4e9e7748e95d0a808, type: 3}
+      propertyPath: powerUp
+      value: 
+      objectReference: {fileID: 1857435761}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 566f94a98d76a7c4e9e7748e95d0a808, type: 3}
+--- !u!1 &1857435760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 183399772134898298, guid: 566f94a98d76a7c4e9e7748e95d0a808, type: 3}
+  m_PrefabInstance: {fileID: 1857435759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1857435761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857435760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa36d7d7c8fe4fb418815ee1ce699dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffTime: 5
+  speedBuffValue: 1.6
+  speedDebuffValue: 0.7
+  damageBuffValue: 2
+  damageDebuffValue: 0.6
+  hitboxBuffValue: 1.2
+  hitboxDebuffValue: 0.6
+  es: {fileID: 1604206095}
+  movement: {fileID: 1604206092}
+  hitbox: {fileID: 1604206096}
+--- !u!4 &1857435763 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 183399772134898292, guid: 566f94a98d76a7c4e9e7748e95d0a808, type: 3}
+  m_PrefabInstance: {fileID: 1857435759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1944720342
 GameObject:
   m_ObjectHideFlags: 0

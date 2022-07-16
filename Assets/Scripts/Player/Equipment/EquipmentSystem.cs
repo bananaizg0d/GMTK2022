@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-public class EquipmentSystem : MonoBehaviour, IFreezible
+public class EquipmentSystem : MonoBehaviour, IFreezible, IBuffable
 {
     [SerializeField] internal Transform itemHolder;
 
@@ -12,6 +12,8 @@ public class EquipmentSystem : MonoBehaviour, IFreezible
     protected Item currentItem;
 
     Vector3 mouseDir;
+
+    public float Modifier { get; set; } = 1;
 
     void Update()
     {
@@ -125,6 +127,17 @@ public class EquipmentSystem : MonoBehaviour, IFreezible
         return bestItem;
     }
 
+    public void Buff(float newModifier, float time)
+    {
+        Modifier = newModifier;
+        Invoke(nameof(SetNormalModifier), time);
+    }
+
+    public void SetNormalModifier()
+    {
+        Modifier = 1;
+    }
+
     protected virtual void OnSetItem(Item item) { }
     protected virtual void OnUnsetItem(Item item) { }
 
@@ -133,5 +146,4 @@ public class EquipmentSystem : MonoBehaviour, IFreezible
 
     public virtual void DisableItemPick() { }
     public virtual void EnableItemPick() { }
-    
 }

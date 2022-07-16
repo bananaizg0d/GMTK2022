@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DiceScript : MonoBehaviour
 {
+    [SerializeField] PowerUp powerUp;
+
     public bool dicable = true;
     public bool diceHitable;
 
@@ -14,7 +16,7 @@ public class DiceScript : MonoBehaviour
     public float diceHitZone = 0.5f;
     public float diceCycle;
 
-    public float powerRandomizer;
+    public int powerRandomizer;
 
     public float debugTimer;
 
@@ -79,12 +81,12 @@ public class DiceScript : MonoBehaviour
     {
         if (diceSucceded)
         {
-            Debug.LogError("success");
+            Debug.Log("success");
             Buff();
         }
         else if (!diceSucceded)
         {
-            Debug.LogError("failed");
+            Debug.Log("failed");
             Debuff();
         }
         diceSucceded = false;
@@ -97,64 +99,15 @@ public class DiceScript : MonoBehaviour
 
     private void Buff()
     {
-        powerRandomizer = Random.Range(1, 6);
+        powerRandomizer = Random.Range(0, 3);
 
-        if (powerRandomizer == 1)
-        {
-            //player speed up for 5 secs
-        }
-        else if (powerRandomizer == 2)
-        {
-            //player damage/fire rate up for 5 secs
-        }
-        else if (powerRandomizer == 3)
-        {
-            //shoot in every direction
-        }
-        else if (powerRandomizer == 4)
-        {
-            //unlimited dash/defensive ability for 5 secs
-        }
-        else if (powerRandomizer == 5)
-        {
-            //player hitbox decreased for 5 secs
-        }
-        else if (powerRandomizer == 6)
-        {
-            //something cool
-        }
-
+        powerUp.ChoosePowerUp(powerRandomizer, true);
     }
 
     private void Debuff()
     {
-        powerRandomizer = Random.Range(1, 6);
+        powerRandomizer = Random.Range(0, 3);
 
-        if (powerRandomizer == 1)
-        {
-            //player speed down for 5 secs
-        }
-        else if (powerRandomizer == 2)
-        {
-            //player damage/fire rate down for 5 secs
-        }
-        else if (powerRandomizer == 3)
-        {
-            //damage taken increase
-        }
-        else if (powerRandomizer == 4)
-        {
-            //no dash/defensive ability for 5 secs
-        }
-        else if (powerRandomizer == 5)
-        {
-            //player hitbox increased for 5 secs
-        }
-        else if (powerRandomizer == 6)
-        {
-            //something uncool
-        }
-
-
+        powerUp.ChoosePowerUp(powerRandomizer, false);
     }
 }

@@ -65,7 +65,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.TryGetComponent(out Health health))
         {
-            health.TakeDamage(damage);
+            health.TakeDamage(Mathf.RoundToInt(damage * holder.Modifier));
         }
 
         return health != null && health.isStatic;
