@@ -23,11 +23,21 @@ public class EnemyAI : StateMachine
     [SerializeField] float combatDistance;
     [SerializeField] float stunOnDamageTime;
     [SerializeField] public float delayBetweenAttacks;
+    [SerializeField] bool isRanged, isStatic;
 
+    [Header("Bullet")]
+    [SerializeField] float bulletSpeed;
+    [SerializeField] int bulletDamage;
+
+
+    [SerializeField] GameObject bulletPrefab;
     bool gotHit;
 
     void Start()
     {
+        if (destinationSetter.target != null)
+            target = destinationSetter.target;
+
         var searching = new Searching(this);
         var running = new Running(this);
         var combat = new Combat(this);
@@ -48,6 +58,7 @@ public class EnemyAI : StateMachine
     public void SetTarget(Transform target)
     {
         destinationSetter.target = target;
+        this.target = target;
     }
 
     public bool IsTargetDead()
@@ -74,6 +85,14 @@ public class EnemyAI : StateMachine
 
     public void Attack()
     {
+        if (isRanged)
+            RangedAttack();
+        else
+            MeleeAttack();
+    }
+
+    void MeleeAttack()
+    {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(hitPoint.position, attackRadius, damagableLayers);
 
         foreach (var coll in colliders)
@@ -84,6 +103,14 @@ public class EnemyAI : StateMachine
                 print("Dealt damage to: " + health.name + ". Damage amount: " + attackDamage + ". Current health: " + health.currentHealth);
             }
         }
+    }
+
+    void RangedAttack()
+    {
+        var go = Instantiate(bulletPrefab, hitPoint.position, hitPoint.rotation, null);
+        var bullet = go.GetComponent<Bullet>();
+
+        bullet.Init(gameObject, bulletDamage, bulletSpeed);
     }
 
     bool IsPlayerAvailable()

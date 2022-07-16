@@ -11,10 +11,12 @@ public class Bullet : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRend;
     [SerializeField] AudioSource audioSrc;
 
-    protected EquipmentSystem holder;
+    protected GameObject holder;
 
     protected int damage = 10;
     protected float speed = 30f;
+
+    float modifier;
 
     bool collided;
 
@@ -24,8 +26,9 @@ public class Bullet : MonoBehaviour
         StartCoroutine(DestroyWhenTooFar());
     }
 
-    public void Init(EquipmentSystem holder, int damage, float speed)
+    public void Init(GameObject holder, int damage, float speed, float modifier = 1)
     {
+        this.modifier = modifier;
         this.damage = damage;
         this.speed = speed;
         this.holder = holder;
@@ -36,9 +39,7 @@ public class Bullet : MonoBehaviour
         if (collision.isTrigger || collided)
             return;
 
-        collision.TryGetComponent(out EquipmentSystem es);
-
-        if (es == holder)
+        if (collision.gameObject == holder || collision.gameObject.layer == holder.layer)
             return;
 
         collided = true;
@@ -65,7 +66,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.TryGetComponent(out Health health))
         {
-            health.TakeDamage(Mathf.RoundToInt(damage * holder.Modifier));
+            health.TakeDamage(Mathf.RoundToInt(damage * modifier));
         }
 
         return health != null && health.isStatic;

@@ -18,7 +18,7 @@ public class Combat : State
 
     public override void OnUpdate()
     {
-        var dir = (AI.target.position - AI.transform.position).normalized;
+        var dir = (Vector2)AI.target.position - (Vector2)AI.transform.position;
         AI.transform.up = dir;
     }
 

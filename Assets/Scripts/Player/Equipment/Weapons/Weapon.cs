@@ -24,7 +24,7 @@ public class Weapon : Item
     {
         var bullet = Instantiate(stats.bulletPrefab, shootingPoint.position, shootingPoint.rotation, null);
         var bulletComponent = bullet.GetComponent<Bullet>();
-        bulletComponent.Init(character, stats.damage, stats.bulletSpeed);
+        bulletComponent.Init(character.gameObject, stats.damage, stats.bulletSpeed, character.Modifier);
 
         PlayShootEffects();
     }

@@ -84,37 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1106403361
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1106403362}
-  m_Layer: 6
-  m_Name: Hit Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1106403362
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106403361}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.72, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2720864799523658804}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1584414414
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,14 +107,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584414414}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.72, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.387, y: 0.579, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2720864799523658804}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &2720864799523658802
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +132,7 @@ GameObject:
   - component: {fileID: 829458437}
   - component: {fileID: 2108511036}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: Enemy Ranged
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +152,6 @@ Transform:
   m_Children:
   - {fileID: 1584414415}
   - {fileID: 448832091}
-  - {fileID: 1106403362}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -312,10 +280,15 @@ MonoBehaviour:
   target: {fileID: 0}
   attackDamage: 5
   attackRadius: 1
-  runningDistance: 30
-  combatDistance: 1.5
+  runningDistance: 10
+  combatDistance: 5
   stunOnDamageTime: 0.3
   delayBetweenAttacks: 2
+  isRanged: 1
+  isStatic: 0
+  bulletSpeed: 7
+  bulletDamage: 10
+  bulletPrefab: {fileID: 6871634380604022873, guid: d5229e9bb225d014a998794dfa5b814a, type: 3}
 --- !u!114 &829458437
 MonoBehaviour:
   m_ObjectHideFlags: 0
