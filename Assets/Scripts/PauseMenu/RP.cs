@@ -47,7 +47,7 @@ public class RP : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("StartScene");
     }
 
     public void Quit()
