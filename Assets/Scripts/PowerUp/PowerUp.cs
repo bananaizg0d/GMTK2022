@@ -34,6 +34,12 @@ public class PowerUp : MonoBehaviour
 
         string debugMessage = "";
 
+        if (es == null || movement == null || hitbox == null) 
+        {
+            Debug.LogWarning("Scripts are not attached");
+            return;
+        }
+
         switch (buff)
         {
             case 0:
