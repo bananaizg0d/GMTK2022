@@ -7,6 +7,23 @@ public class AIManager : MonoBehaviour
     public Action onEnemiesDie;
     bool areEnemiesDead;
 
+    public bool canFollowPlayer = false;
+
+    SafeZone sz;
+
+    void Start()
+    {
+        sz = GameObject.FindWithTag(SafeZone.TAG).GetComponent<SafeZone>();
+
+        sz.onSafeZoneOut += EnablePlayerFollow;
+    }
+
+    void EnablePlayerFollow()
+    {
+        canFollowPlayer = true;
+        sz.onSafeZoneOut -= EnablePlayerFollow;
+    }
+
     void Update()
     {
         if (transform.childCount == 0 && !areEnemiesDead)

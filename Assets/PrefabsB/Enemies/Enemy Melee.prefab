@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ab4751b52cc77f446955e96db717ad5f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 152fd550d76cfe648ad08a2242b27664, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
   version: 5
   radius: 0.58
   height: 2
-  canMove: 1
+  canMove: 0
   maxSpeed: 3
   gravity: {x: 0, y: 0, z: 0}
   groundMask:

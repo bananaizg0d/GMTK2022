@@ -115,7 +115,9 @@ public class EnemyAI : StateMachine
 
     bool IsPlayerAvailable()
     {
-        return destinationSetter.target != null && aiPath.remainingDistance <= runningDistance;
+        if (destinationSetter.target == null || aiPath.remainingDistance > runningDistance || !aiManager.canFollowPlayer)
+            return false;
+        return true;
     }
 
     bool IsPlayerWithingCombatRange()
