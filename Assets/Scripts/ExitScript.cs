@@ -9,16 +9,18 @@ public class ExitScript : MonoBehaviour
     void Start()
     {
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         if (enemies.Length <= 0)
         {
+            enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
 
         }
@@ -31,4 +33,5 @@ public class ExitScript : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
+
 }
