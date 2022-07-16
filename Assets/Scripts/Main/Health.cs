@@ -83,7 +83,6 @@ public class Health : MonoBehaviour
         {
             isDead = true;
             _OnDie?.Invoke();
-            Destroy(gameObject.transform.parent.gameObject);//banana
             return;
             
         }
