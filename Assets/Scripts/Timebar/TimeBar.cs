@@ -40,9 +40,9 @@ public class TimeBar : MonoBehaviour
         else if (countdownBar.value >= refillTime)
         {
 
-            countDown = true;
+            countDown = false;
             allowInputs = false;
-            }
+        }
 
     }
  
