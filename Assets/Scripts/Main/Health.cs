@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
     bool invulnerable;
     float timeAfterFirstHit;
     bool startCountingTime;
+    float damageModifier = 1;
 
     void OnEnable()
     {
@@ -72,7 +73,7 @@ public class Health : MonoBehaviour
         startCountingTime = true;
         invulnerable = true;
 
-        currentHealth -= amount;
+        currentHealth -= (int)(amount * damageModifier);
 
         if (currentHealth < 0) 
             currentHealth = 0;
@@ -87,6 +88,7 @@ public class Health : MonoBehaviour
 
         _OnDamage?.Invoke(currentHealth);
     }
+
     public void Restore(int amount)
     {
         currentHealth += amount;
@@ -95,5 +97,16 @@ public class Health : MonoBehaviour
             currentHealth = maxHealth;
 
         _OnRestore?.Invoke(currentHealth);
+    }
+
+    public void BuffHealth(float modifier, float time)
+    {
+        damageModifier = modifier;
+        Invoke(nameof(SetNormalHealth), time);
+    }
+
+    void SetNormalHealth()
+    {
+        damageModifier = 1;
     }
 }

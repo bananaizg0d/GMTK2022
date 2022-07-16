@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class TopDownMovement : MonoBehaviour
+public class TopDownMovement : MonoBehaviour, IBuffable
 {
     [SerializeField] float movementSpeed;
     [SerializeField] Rigidbody2D rb;
 
+    float Modifier = 1;
 
     Vector2 movementInput;
 
@@ -15,8 +16,19 @@ public class TopDownMovement : MonoBehaviour
         movementInput = movementInput.normalized;
     }
 
+    public void Buff(float newModifier, float time)
+    {
+        Modifier = newModifier;
+        Invoke(nameof(SetNormalModifier), time);
+    }
+
+    public void SetNormalModifier()
+    {
+        Modifier = 1;
+    }
+
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movementInput * movementSpeed * Time.deltaTime);
+        rb.MovePosition(rb.position + movementInput * movementSpeed * Modifier * Time.deltaTime);
     }
 }
