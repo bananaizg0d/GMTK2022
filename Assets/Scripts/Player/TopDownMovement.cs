@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class TopDownMovement : MonoBehaviour, IBuffable
 {
+    public const string PLAYERTAG = "Player";
+
     [SerializeField] float movementSpeed;
     [SerializeField] Rigidbody2D rb;
 
