@@ -12,6 +12,8 @@ public class Searching : State
     public override void OnEnter()
     {
         AI.SetUpdateMode(StateMachine.UpdateMode.Custom, 0.2f);
+        if (AI.destinationSetter.target != null)
+            AI.target = AI.destinationSetter.target;
     }
 
     public override void OnUpdate()
