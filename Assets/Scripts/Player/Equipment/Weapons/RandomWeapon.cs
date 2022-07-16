@@ -13,6 +13,13 @@ public class RandomWeapon : Weapon
         InvokeRepeating(nameof(Randomize), delay, delay);
     }
 
+    public override void WasTossedAway()
+    {
+        base.WasTossedAway();
+
+        CancelInvoke(nameof(Randomize));
+    }
+
     void Randomize()
     {
         var randomStat = gunTypes[Random.Range(0, gunTypes.Count)];

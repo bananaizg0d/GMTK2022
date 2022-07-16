@@ -3,18 +3,24 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour, IBuffable
 {
     [SerializeField] CapsuleCollider2D mainCollider;
+    [SerializeField] Transform GFX;
 
-    Vector2 normalSize;
+    Vector2 ccNormalSize;
+    Vector2 gfxNormalSize;
 
     public void Buff(float value, float time)
     {
-        normalSize = mainCollider.size;
+        ccNormalSize = mainCollider.size;
+        gfxNormalSize = GFX.localScale;
         mainCollider.size *= value;
+        GFX.localScale *= value;
+
         Invoke(nameof(SetNormalModifier), time);
     }
 
     public void SetNormalModifier()
     {
-        mainCollider.size = normalSize;
+        mainCollider.size = ccNormalSize;
+        GFX.localScale = gfxNormalSize;
     }
 }
