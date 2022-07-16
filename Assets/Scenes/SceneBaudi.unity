@@ -3062,7 +3062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa36d7d7c8fe4fb418815ee1ce699dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffTime: 0
+  buffTime: 5
   speedBuffValue: 1.6
   speedDebuffValue: 0.7
   damageBuffValue: 2
