@@ -625,18 +625,17 @@ MonoBehaviour:
     Bronsolo - composer
 
 
-    IAmNotGameDev -
-    programmer
+    IAmNotGameDev - programmer
 
 
-    Baudi - programmer
+    Baudi
+    - programmer
 
 
     Ned - programmer
 
 
-    xpowerpuffgril
-    - 2d artist'
+    xpowerpuffgril - 2d artist'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4c62e6f9d860c984a821f56edb71fd87, type: 2}
   m_sharedMaterial: {fileID: -553087196717004681, guid: 4c62e6f9d860c984a821f56edb71fd87, type: 2}
