@@ -18,7 +18,8 @@ public class Combat : State
 
     public override void OnUpdate()
     {
-        AI.transform.LookAt(AI.target);
+        var dir = (AI.target.position - AI.transform.position).normalized;
+        AI.transform.up = dir;
     }
 
     public override void OnExit()
