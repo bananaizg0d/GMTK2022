@@ -17,6 +17,7 @@ public class CallTimeBar : MonoBehaviour
 
         //disable timebar
         //timebar.enabled = false;
+
     }
 
     // Update is called once per frame
