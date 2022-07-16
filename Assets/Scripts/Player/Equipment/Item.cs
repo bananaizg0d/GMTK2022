@@ -4,8 +4,7 @@ using UnityEngine.Animations;
 public class Item : MonoBehaviour
 {
     [Header("Item")]
-    [SerializeField] float tossAngularVelocity;
-    [SerializeField] float holdingOffsetX;
+    [SerializeField] Vector2 holdingOffset;
 
     protected Collider2D col;
     protected EquipmentSystem character;
@@ -15,31 +14,21 @@ public class Item : MonoBehaviour
     {
         col = GetComponent<Collider2D>();
     }
-    public void WasEquippedBy(EquipmentSystem character)
+    public virtual void WasEquippedBy(EquipmentSystem character)
     {
         this.character = character;
         col.enabled = false;
         transform.SetParent(character.itemHolder.transform);
-        transform.localPosition = Vector2.zero.WhereX(holdingOffsetX);
+        transform.localPosition = holdingOffset;
         transform.localEulerAngles = Vector2.zero;
-        OnEquip();
     }
-    public void WasTossedAway()
+    public virtual void WasTossedAway()
     {
-        OnToss();
         col.enabled = true;
         transform.SetParent(null);
         transform.position = character.transform.position.AddTo(y: -1);
         transform.rotation = Quaternion.identity;
         character = null;
-    }
-    protected virtual void OnEquip()
-    {
-        character.animator.SetBool("isHoldingBox", true);
-    }
-    protected virtual void OnToss()
-    {
-        character.animator.SetBool("isHoldingBox", false);
     }
     public virtual void Use() { }
     public virtual void StopUsing() { }

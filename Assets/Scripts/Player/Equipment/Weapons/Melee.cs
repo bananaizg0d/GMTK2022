@@ -12,8 +12,6 @@ public class Melee : Item
     [SerializeField, Range(0,1f)] float hitVolScale;
     [SerializeField] Transform attackPoint;
 
-
-
     AudioSource src;
     SpriteRenderer GFX;
     CapsuleCollider2D coll;
@@ -30,19 +28,6 @@ public class Melee : Item
         character.animator.SetTrigger("Attacked");
         src.PlayOneShot(onAirHit, 1);
     }
-    protected override void OnEquip()
-    {
-        print("Set trigger to true");
-        character.animator.SetBool("isHoldingMelee", true);
-        coll.enabled = false;
-    }
-
-    protected override void OnToss()
-    {
-        print("Set trigger to false");
-        character.animator.SetBool("isHoldingMelee", false);
-        coll.enabled = true;
-    }
 
     public void Attack()
     {
@@ -50,7 +35,7 @@ public class Melee : Item
         foreach(var col in cols)
         {
             print(col.gameObject);
-            if (col.TryGetComponent(out Health health) && !health.isStatic)
+            if (col.TryGetComponent(out Health health))
             {
                 print("Damaging " + col.gameObject);
                 src.PlayOneShot(onHealthHit, hitVolScale);
@@ -59,7 +44,7 @@ public class Melee : Item
             else if (col != null)
             {
                 print(col.gameObject.name);
-                if (health != null && health.isStatic)
+                if (health != null)
                 {
                     health.TakeDamage(damage);
                 }

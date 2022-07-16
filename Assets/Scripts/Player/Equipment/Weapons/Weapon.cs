@@ -2,62 +2,40 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public abstract class Weapon : Item
+public class Weapon : Item
 {
-    [Header("Stats")]
-    [SerializeField] protected int bullets;
-    [SerializeField] float maxAimAngle;
-    [SerializeField] int damage;
-    [SerializeField] float bulletSpeed;
-    [SerializeField] float bulletGravityScale;
-
-
-    protected int currentBullets;
-
-    [Header("References")]
-    [SerializeField] GameObject bulletPrefab;
+    [Header("Weapon")]
+    [SerializeField] protected WeaponStatsSO stats;
     [SerializeField] Transform shootingPoint;
     [SerializeField] ParticleSystem shootEffect;
 
-    [Header("Audio")]
-    [SerializeField] protected AudioClip shootSFX;
-    [SerializeField] protected AudioClip emptyMagSFX;
-    [SerializeField] float pitchRandomness;
-
-
-    protected AudioSource src;
+    AudioSource src;
     SpriteRenderer GFX;
-    Coroutine recoilRoutine;
-
-    public int CurrentBullets => currentBullets;
+    protected Coroutine shooting;
 
     protected override void Awake()
     {
         base.Awake();
         GFX = GetComponentInChildren<SpriteRenderer>();
         src = GetComponent<AudioSource>();
-        currentBullets = bullets;
     }
 
     protected void SingleShot()
     {
-        var bullet = Instantiate(bulletPrefab, shootingPoint.position, shootingPoint.rotation, null);
+        var bullet = Instantiate(stats.bulletPrefab, shootingPoint.position, shootingPoint.rotation, null);
         var bulletComponent = bullet.GetComponent<Bullet>();
-        bulletComponent.speed = bulletSpeed;
-        bulletComponent.gravityScale = bulletGravityScale;
-        bulletComponent.damage = damage;
-        bulletComponent.holder = character;
-        if (recoilRoutine != null) StopCoroutine(recoilRoutine);
-        currentBullets -= 1;
+        bulletComponent.Init(character, stats.damage, stats.bulletSpeed);
+
         PlayShootEffects();
     }
 
     protected virtual void PlayShootEffects()
     {
-        shootEffect.Play();
+        shootEffect?.Play();
         var initialPitch = src.pitch;
-        src.pitch = src.pitch + Random.Range(-pitchRandomness, pitchRandomness);
-        src.PlayOneShot(shootSFX);
+        src.pitch = src.pitch + Random.Range(-stats.pitchRandomness, stats.pitchRandomness);
+        //remove comment after added audioclip
+        //src.PlayOneShot(stats.shootSFX);
         src.pitch = initialPitch;
     }
 
@@ -66,8 +44,40 @@ public abstract class Weapon : Item
         var dir = aimPoint - (Vector2)transform.position;
         transform.right = dir;
     }
-    protected override void OnToss()
+
+    public override void WasTossedAway()
     {
+        base.WasTossedAway();
         StopAllCoroutines();
+    }
+
+    public override void Use()
+    {
+        if (!stats.isAutomatic)
+        {
+            SingleShot();
+            return;
+        }
+
+        if (shooting != null) return;
+
+        shooting = StartCoroutine(AutoShoot(stats.delayBetweenShots));
+    }
+
+    public override void StopUsing()
+    {
+        if (shooting != null)
+            StopCoroutine(shooting);
+        shooting = null;
+    }
+
+    IEnumerator AutoShoot(float delay)
+    {
+        while (true)
+        {
+            SingleShot();
+            src.PlayOneShot(stats.shootSFX);
+            yield return new WaitForSeconds(delay);
+        }
     }
 }

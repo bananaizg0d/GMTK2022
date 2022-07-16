@@ -4,27 +4,33 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D), typeof(AudioSource))]
 public class Bullet : MonoBehaviour
 {
-    public EquipmentSystem holder;
-    
     [SerializeField] ParticleSystem onDestroyEffect, onDamageEffect;
     [SerializeField] AudioClip onDestroySound, onDamageSound;
 
+    [SerializeField] protected Rigidbody2D rb;
     [SerializeField] SpriteRenderer spriteRend;
-    [SerializeField] Rigidbody2D rb;
     [SerializeField] AudioSource audioSrc;
 
-    [HideInInspector] public int damage = 10;
-    [HideInInspector] public float speed = 30f;
-    [HideInInspector] public float gravityScale = 0f;
+    protected EquipmentSystem holder;
+
+    protected int damage = 10;
+    protected float speed = 30f;
 
     bool collided;
 
     void Start()
     {
         rb.AddForce(transform.right * speed, ForceMode2D.Impulse);
-        rb.gravityScale = gravityScale;
-        StartCoroutine(DestroyWhenNotSeen());
+        StartCoroutine(DestroyWhenTooFar());
     }
+
+    public void Init(EquipmentSystem holder, int damage, float speed)
+    {
+        this.damage = damage;
+        this.speed = speed;
+        this.holder = holder;
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.isTrigger || collided)
@@ -46,27 +52,24 @@ public class Bullet : MonoBehaviour
         ParticleSystem particleSystem;
         AudioClip soundEffect;
 
+        OnHitObstacle(collision);
+
+        //StartCoroutine(PlayEffects(particleSystem, soundEffect));
+
+        Destroy(gameObject);
+    }
+
+    protected virtual void OnHitObstacle(Collider2D collision)
+    {
         if (collision.TryGetComponent(out Rigidbody2D otherRB))
         {
-            otherRB.AddForce(transform.right * speed / otherRB.gravityScale, ForceMode2D.Impulse);
+            otherRB.AddForce(transform.right * (speed / 5), ForceMode2D.Impulse);
         }
 
-        if (collision.TryGetComponent(out Health health) && health.isStatic == false)
+        if (collision.TryGetComponent(out Health health))
         {
             health.TakeDamage(damage);
-            particleSystem = onDamageEffect;
-            soundEffect = onDamageSound;
         }
-        else
-        {
-            if (health != null && health.isStatic)
-            {
-                health.TakeDamage(damage);
-            }
-            particleSystem = onDestroyEffect;
-            soundEffect = onDestroySound;
-        }
-        //StartCoroutine(PlayEffects(particleSystem, soundEffect));
     }
 
     IEnumerator PlayEffects(ParticleSystem particleSystem, AudioClip soundEffect)
@@ -81,11 +84,11 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator DestroyWhenNotSeen()
+    IEnumerator DestroyWhenTooFar()
     {
         yield return new WaitUntil(() => {
             var vp = Camera.main.WorldToViewportPoint(transform.position);
-            if (vp.x < 0 || vp.y < 0 || vp.y > 1 || vp.x > 1)
+            if (vp.x < -3 || vp.y < -3 || vp.y > 3 || vp.x > 3)
                 return true;
             return false;
         });

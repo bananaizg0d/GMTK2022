@@ -3,7 +3,6 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    public bool isStatic;
     [SerializeField] float InvulnerabilityAfterHit;
     public int maxHealth;
     public int currentHealth { get; private set; }
