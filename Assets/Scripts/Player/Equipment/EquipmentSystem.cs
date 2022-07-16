@@ -17,6 +17,9 @@ public class EquipmentSystem : MonoBehaviour, IFreezible, IBuffable
 
     void Update()
     {
+        if (Time.timeScale == 0)
+            return;
+
         if (Input.GetKeyDown(KeyCode.E))
             Equip();
         if (Input.GetKeyDown(KeyCode.G))
