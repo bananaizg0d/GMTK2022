@@ -14,7 +14,7 @@ public class Menu : MonoBehaviour
     public void Control()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Control");
+        SceneManager.LoadScene("Controls");
     }
 
 
