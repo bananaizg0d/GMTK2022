@@ -18,17 +18,22 @@ public class DiceScript : MonoBehaviour
 
     public int powerRandomizer;
 
+    public GameObject DiceSlider;
+
     public float debugTimer;
 
     private void Start()
     {
+        //if (GameObject.Find("DiceSlider") != null)
+        //{
+        //    DiceSlider = GameObject.Find("DiceSlider");
+        //}
+        DiceSlider = GameObject.Find("DiceSlider");
+        DiceSlider.GetComponent<TimeBar>().refillTime = diceStartZone + diceHitZone;
+        DiceSlider.GetComponent<TimeBar>().countDownTime = diceCD;
+
         diceCycle = diceCD + diceHitZone + diceStartZone;
-
         StartCoroutine(DiceNumerator());
-        //StartCoroutine(Check4Success());
-
-        //InvokeRepeating(nameof(DiceStart), diceCD, diceCycle);
-        //InvokeRepeating(nameof(CheckSuccess), diceCycle, diceCycle);
     }
 
     void Update()
@@ -42,11 +47,15 @@ public class DiceScript : MonoBehaviour
     
     IEnumerator DiceNumerator()
     {
+        DiceSlider.GetComponent<TimeBar>().countDown = true;
+
         yield return new WaitForSeconds(diceCD);
+
         while (true)
         {
             DiceStart();
             yield return new WaitForSeconds(diceCycle);
+
         }
     }
     //IEnumerator Check4Success()
@@ -65,6 +74,8 @@ public class DiceScript : MonoBehaviour
     {
         Invoke(nameof(DiceHitZone), diceStartZone);
         Debug.LogError("started");
+        DiceSlider.GetComponent<TimeBar>().countDown = false;
+
     }
 
     public void DiceHitZone()
@@ -80,6 +91,8 @@ public class DiceScript : MonoBehaviour
         diceHitable = false;
         CheckSuccess();
         Debug.LogError("end");
+        DiceSlider.GetComponent<TimeBar>().countDown = true;
+
     }
 
     public void CheckSuccess()
@@ -98,6 +111,9 @@ public class DiceScript : MonoBehaviour
         diceCD = Random.Range(4, 8);
         diceStartZone = Random.Range(1, 4);
         diceCycle = diceCD + diceHitZone + diceStartZone;
+        DiceSlider.GetComponent<TimeBar>().refillTime = diceStartZone + diceHitZone;
+        DiceSlider.GetComponent<TimeBar>().countDownTime = diceCD;
+
 
         debugTimer = 0;
     }
