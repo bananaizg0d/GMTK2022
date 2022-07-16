@@ -16,12 +16,17 @@ public class DiceScript : MonoBehaviour
 
     public float powerRandomizer;
 
+    public float debugTimer;
+
     private void Start()
     {
         diceCycle = diceCD + diceHitZone + diceStartZone;
 
-        InvokeRepeating(nameof(DiceStart), diceCD, diceCycle);
-        InvokeRepeating(nameof(CheckSuccess), diceCycle, diceCycle);
+        StartCoroutine(DiceNumerator());
+        StartCoroutine(Check4Success());
+
+        //InvokeRepeating(nameof(DiceStart), diceCD, diceCycle);
+        //InvokeRepeating(nameof(CheckSuccess), diceCycle, diceCycle);
     }
 
     void Update()
@@ -30,10 +35,26 @@ public class DiceScript : MonoBehaviour
         {
             diceSucceded = true;
         }
-        //else if ()
-        //{
-
-        //}
+        debugTimer += Time.deltaTime;
+    }
+    
+    IEnumerator DiceNumerator()
+    {
+        yield return new WaitForSeconds(diceCD);
+        while (true)
+        {
+            DiceStart();
+            yield return new WaitForSeconds(diceCycle);
+        }
+    }
+    IEnumerator Check4Success()
+    {
+        yield return new WaitForSeconds(diceCycle);
+        while (true)
+        {
+            CheckSuccess();
+            yield return new WaitForSeconds(diceCycle);
+        }
     }
 
     public void LevelStart() => dicable = true;
@@ -67,6 +88,11 @@ public class DiceScript : MonoBehaviour
             Debuff();
         }
         diceSucceded = false;
+        diceCD = Random.Range(4, 8);
+        diceStartZone = Random.Range(1, 4);
+        diceCycle = diceCD + diceHitZone + diceStartZone;
+
+        debugTimer = 0;
     }
 
     private void Buff()
@@ -97,6 +123,7 @@ public class DiceScript : MonoBehaviour
         {
             //something cool
         }
+
     }
 
     private void Debuff()
@@ -113,7 +140,7 @@ public class DiceScript : MonoBehaviour
         }
         else if (powerRandomizer == 3)
         {
-            //enemy bullets increase??
+            //damage taken increase
         }
         else if (powerRandomizer == 4)
         {
@@ -127,5 +154,7 @@ public class DiceScript : MonoBehaviour
         {
             //something uncool
         }
+
+
     }
 }
