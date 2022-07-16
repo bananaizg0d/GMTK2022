@@ -36,6 +36,12 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (holder == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         if (collision.isTrigger || collided)
             return;
 
