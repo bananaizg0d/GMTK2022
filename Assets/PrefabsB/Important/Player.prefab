@@ -489,13 +489,45 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7378826178220668251}
     - target: {fileID: 1857435761, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857435761, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
       propertyPath: hitbox
       value: 
       objectReference: {fileID: 7378826178220668228}
     - target: {fileID: 1857435761, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
+      propertyPath: bullets
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857435761, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
       propertyPath: movement
       value: 
       objectReference: {fileID: 7378826178220668248}
+    - target: {fileID: 1857435761, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
+      propertyPath: bulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857435761, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
+      propertyPath: spreadAngle
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857435761, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 6871634380604022873, guid: 27451ba6934a6fc4c8bf4375e6864861, type: 3}
+    - target: {fileID: 1857435761, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 7378826178220668254}
+    - target: {fileID: 1857435761, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
+      propertyPath: shootingDelay
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857435761, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
+      propertyPath: bulletBuffTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7900513351439545746, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
       propertyPath: src
       value: 
@@ -508,21 +540,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: RandomDiceObject
       objectReference: {fileID: 0}
+    - target: {fileID: 7900513351439545747, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7900513351439545757, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7900513351439545757, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5081588
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7900513351439545757, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4136314
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7900513351439545757, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.573685
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7900513351439545757, guid: b2235abf54bc25245b277d2ce6bfeee0, type: 3}
       propertyPath: m_LocalRotation.w

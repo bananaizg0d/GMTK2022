@@ -83,16 +83,16 @@ public class PowerUp : MonoBehaviour
                 componentToBuff.Buff(buffValue, buffTime);
                 break;
             case 3:
-                StartCoroutine(ShootInEveryDirection());
+                if (isBuff)
+                    StartCoroutine(KillEnemies());
+                else
+                    aiManager.MakeInvulnirable(3, 5);
                 break;
             case 4:
                 playerHealth.MakeInvulnirable(buffTime);
                 break;
             case 5:
-                if (isBuff)
-                    StartCoroutine(KillEnemies());
-                else
-                    aiManager.MakeInvulnirable(3, 5);
+                StartCoroutine(ShootInEveryDirection());
                 break;
             default:
                 return;
