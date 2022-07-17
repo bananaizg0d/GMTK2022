@@ -14,6 +14,7 @@ public class WeaponStatsSO : ScriptableObject
     public float shotgunSpreadAngle;
     public int shotgunMaxBulletsPershot;
     public float delayBetweenShots;
+    public float delayBetweenShotsNonAuto;
     public int damage;
     public float bulletSpeed;
     public float bulletGravityScale;

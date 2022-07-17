@@ -13,6 +13,8 @@ public class Weapon : Item
     SpriteRenderer GFX;
     protected Coroutine shooting;
 
+    bool canShoot = true;
+
     protected override void Awake()
     {
         base.Awake();
@@ -22,6 +24,12 @@ public class Weapon : Item
 
     protected void SingleShot()
     {
+        if (canShoot == false && !stats.isAutomatic)
+            return;
+
+        canShoot = false;
+        Invoke(nameof(EnableShooting), stats.delayBetweenShotsNonAuto);
+
         var bullet = Instantiate(stats.bulletPrefab, shootingPoint.position, shootingPoint.rotation, null);
         var bulletComponent = bullet.GetComponent<Bullet>();
         bulletComponent.Init(character.gameObject, stats.damage, stats.bulletSpeed, character.Modifier);
@@ -29,8 +37,19 @@ public class Weapon : Item
         PlayShootEffects();
     }
 
+    void EnableShooting()
+    {
+        canShoot = true;
+    }
+
     void ShotgunShot()
     {
+        if (canShoot == false && !stats.isAutomatic)
+            return;
+
+        canShoot = false;
+        Invoke(nameof(EnableShooting), stats.delayBetweenShotsNonAuto);
+
         GameObject bullet;
         Bullet bulletComp;
         for (int i = 0; i < stats.shotgunMaxBulletsPershot; i++)
@@ -39,6 +58,8 @@ public class Weapon : Item
             bullet.transform.Rotate(Vector3.forward, (i - Mathf.FloorToInt(stats.shotgunMaxBulletsPershot * 0.5f)) * stats.shotgunSpreadAngle);
             bulletComp = bullet.GetComponent<Bullet>();
             bulletComp.Init(character.gameObject, stats.damage, stats.bulletSpeed, character.Modifier);
+
+            PlayShootEffects();
         }
     }
 
