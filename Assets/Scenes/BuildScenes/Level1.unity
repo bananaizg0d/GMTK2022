@@ -4109,6 +4109,7 @@ MonoBehaviour:
   gfx: {fileID: 0}
   mainCollider: {fileID: 1604206093}
   GFX: {fileID: 681748122}
+  explosionPrefab: {fileID: 0}
 --- !u!1001 &1607488066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4479,18 +4480,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1151701070}
-    - target: {fileID: 1459718013399187814, guid: 75bc7cdd919e3ab4ebabab26badb9706, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
     - target: {fileID: 2971979839330264965, guid: 75bc7cdd919e3ab4ebabab26badb9706, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1151701070}
-    - target: {fileID: 2971979839330264965, guid: 75bc7cdd919e3ab4ebabab26badb9706, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75bc7cdd919e3ab4ebabab26badb9706, type: 3}
 --- !u!1001 &1818442750

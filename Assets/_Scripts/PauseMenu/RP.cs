@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class RP : MonoBehaviour
 {
-
+    public AudioSource back;
+    public AudioSource forward;
 
     public static bool GameIsPaused = false;
     public GameObject PauseUI;
@@ -14,13 +15,15 @@ public class RP : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
+            
             if (GameIsPaused)
             {
+                forward.Play();
                 Resume();
             }
             else
             {
+                back.Play();
                 Pause();
             }
         }
