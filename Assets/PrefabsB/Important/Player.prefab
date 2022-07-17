@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b58a75827b6e51042a9783ffc6d05214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InvulnerabilityAfterHit: 1
+  InvulnerabilityAfterHit: 0.7
   maxHealth: 100
   isStatic: 0
   invBubble: {fileID: 715695880}

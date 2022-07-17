@@ -960,6 +960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4839362504908024517}
   - component: {fileID: 2385133904582054254}
+  - component: {fileID: 2070046152}
   m_Layer: 0
   m_Name: UI
   m_TagString: UI
@@ -984,6 +985,20 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2385133904582054254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4839362504908024514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07090b64201836445bf792b120768060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gos: {fileID: 4839362504439118820}
+  egs: {fileID: 3878272567185780245}
+--- !u!114 &2070046152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1375,10 +1390,14 @@ PrefabInstance:
     - target: {fileID: 6259710330283458897, guid: 9e7e5e2760afaaa4397c8a3cd343815c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3878272567185780245}
+      objectReference: {fileID: 4839362504616929988}
     - target: {fileID: 6259710330283458897, guid: 9e7e5e2760afaaa4397c8a3cd343815c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259710330283458897, guid: 9e7e5e2760afaaa4397c8a3cd343815c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EndGameScreen, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e7e5e2760afaaa4397c8a3cd343815c, type: 3}
@@ -1392,6 +1411,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3620087882711696317, guid: 9e7e5e2760afaaa4397c8a3cd343815c, type: 3}
   m_PrefabInstance: {fileID: 571753630382304680}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4839362504616929988 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4956097500658485100, guid: 9e7e5e2760afaaa4397c8a3cd343815c, type: 3}
+  m_PrefabInstance: {fileID: 571753630382304680}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878272567185780245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f709c91f71f1fac4e878c8c6d504ed50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5914257315898554037 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6196090332981582621, guid: 9e7e5e2760afaaa4397c8a3cd343815c, type: 3}
@@ -1404,6 +1434,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4839362503569457684}
     m_Modifications:
+    - target: {fileID: 5629301957559119489, guid: df5a244b40f3a1645a8d2207b88f60a2, type: 3}
+      propertyPath: buffSprites.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 900cad08bd071be408081b8ad7604a95, type: 3}
+    - target: {fileID: 5629301957559119489, guid: df5a244b40f3a1645a8d2207b88f60a2, type: 3}
+      propertyPath: buffSprites.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c1a070eef98c4c2479fbac28717565c2, type: 3}
+    - target: {fileID: 5629301957559119489, guid: df5a244b40f3a1645a8d2207b88f60a2, type: 3}
+      propertyPath: buffSprites.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2942170a039a4494c96ab4777e50b2d0, type: 3}
+    - target: {fileID: 5629301957559119489, guid: df5a244b40f3a1645a8d2207b88f60a2, type: 3}
+      propertyPath: buffSprites.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e5d9cebc8d024964b844cb545a357d12, type: 3}
+    - target: {fileID: 5629301957559119489, guid: df5a244b40f3a1645a8d2207b88f60a2, type: 3}
+      propertyPath: buffSprites.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 38ef23da251564c4ea4801c3b21be799, type: 3}
     - target: {fileID: 5629301957559119489, guid: df5a244b40f3a1645a8d2207b88f60a2, type: 3}
       propertyPath: buffSprites.Array.data[9].clip
       value: 
