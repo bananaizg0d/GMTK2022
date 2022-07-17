@@ -26,6 +26,7 @@ public class RollingDiceVisual : MonoBehaviour
             {
                 anim.enabled = false;
                 img.sprite = buff.sprite;
+                img.color = Color.white;
                 Invoke(nameof(DisableVisuals), buff.buffTime);
             }
         }
