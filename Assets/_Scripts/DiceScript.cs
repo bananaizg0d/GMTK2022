@@ -6,6 +6,7 @@ public class DiceScript : MonoBehaviour
 {
     [SerializeField] PowerUp powerUp;
     [SerializeField] AudioSource src;
+    [SerializeField] AudioClip debuffClip, buffClip;
 
     public bool dicable = true;
     public bool diceHitable;
@@ -100,10 +101,12 @@ public class DiceScript : MonoBehaviour
     {
         if (diceSucceded)
         {
+            src.PlayOneShot(buffClip);
             Buff();
         }
         else if (!diceSucceded)
         {
+            src.PlayOneShot(debuffClip);
             Debuff();
         }
 

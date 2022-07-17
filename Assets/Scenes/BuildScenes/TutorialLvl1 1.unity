@@ -2717,6 +2717,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7272550675109038400, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
+      propertyPath: buffClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1951608a439a6f9448e1b556ffa06ff4, type: 3}
+    - target: {fileID: 7272550675109038400, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
+      propertyPath: debuffClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d494fdf34af8ddd49bbf2084e4c96216, type: 3}
     - target: {fileID: 7378826176322514376, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
       propertyPath: damagedColor.a
       value: 1
@@ -5719,7 +5727,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7786624, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6221,6 +6229,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 67837010}
     m_Modifications:
+    - target: {fileID: 1361715078, guid: 23b3f7d14b0aa2c4ba9c2a85ee94d241, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.8199985
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361715078, guid: 23b3f7d14b0aa2c4ba9c2a85ee94d241, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.8700069
+      objectReference: {fileID: 0}
     - target: {fileID: 2201667487491312457, guid: 23b3f7d14b0aa2c4ba9c2a85ee94d241, type: 3}
       propertyPath: m_RootOrder
       value: 1

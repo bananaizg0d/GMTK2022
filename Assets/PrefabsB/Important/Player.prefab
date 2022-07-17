@@ -342,7 +342,7 @@ MonoBehaviour:
   animator: {fileID: 8060442127823526135}
   movementSpeed: 8
   rb: {fileID: 7378826178220668250}
-  src: {fileID: 0}
+  src: {fileID: 1119935537268220071}
   dashSpeed: 25
   dashTime: 0.1
   dashCooldown: 2

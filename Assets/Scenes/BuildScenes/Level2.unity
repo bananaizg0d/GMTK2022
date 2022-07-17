@@ -284,7 +284,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7295522619664573256, guid: cf0fdda35122d1d49b6504392ee72aaa, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 08a892e560098d047bdc22f50b9cb5c5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: be8f4f2992475ff4e9f5638c891a139e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2524,7 +2524,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 60
   orthographic: 1
   orthographic size: 5
@@ -2711,7 +2711,7 @@ GameObject:
   - component: {fileID: 725141814}
   m_Layer: 0
   m_Name: Enemies
-  m_TagString: Enemy
+  m_TagString: AIManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5390,14 +5390,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1481941241113905444, guid: a3f36ceb689e9174e96350b9a8697bee, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1481941241340319263, guid: a3f36ceb689e9174e96350b9a8697bee, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4839362504908024514, guid: a3f36ceb689e9174e96350b9a8697bee, type: 3}
       propertyPath: m_Name
       value: UI (1)
@@ -6203,12 +6195,12 @@ MonoBehaviour:
     FieldOfView: 60
     OrthographicSize: 5
     NearClipPlane: 0.3
-    FarClipPlane: 1000
+    FarClipPlane: 100
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7786624, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
