@@ -395,7 +395,7 @@ MonoBehaviour:
   isStatic: 1
   bulletSpeed: 7
   bulletDamage: 10
-  bulletPrefab: {fileID: 6871634380604022873, guid: d5229e9bb225d014a998794dfa5b814a, type: 3}
+  bulletPrefab: {fileID: 6871634380604022873, guid: 10b9cc4b9510630439d5ac38fb00ffe7, type: 3}
 --- !u!114 &924352498529668702
 MonoBehaviour:
   m_ObjectHideFlags: 0

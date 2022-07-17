@@ -38,6 +38,9 @@ public class EnemyAI : StateMachine
 
     void Start()
     {
+        if (aiManager == null)
+            aiManager = transform.parent.GetComponent<AIManager>();
+
         if (isStatic)
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
 

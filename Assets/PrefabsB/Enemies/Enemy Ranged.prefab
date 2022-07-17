@@ -334,7 +334,7 @@ MonoBehaviour:
   target: {fileID: 0}
   attackDamage: 10
   attackRadius: 1
-  runningDistance: 10
+  runningDistance: 20
   combatDistance: 5
   stunOnDamageTime: 0.3
   delayBetweenAttacks: 1
@@ -342,7 +342,7 @@ MonoBehaviour:
   isStatic: 0
   bulletSpeed: 7
   bulletDamage: 10
-  bulletPrefab: {fileID: 6871634380604022873, guid: d5229e9bb225d014a998794dfa5b814a, type: 3}
+  bulletPrefab: {fileID: 6871634380604022873, guid: 10b9cc4b9510630439d5ac38fb00ffe7, type: 3}
 --- !u!114 &829458437
 MonoBehaviour:
   m_ObjectHideFlags: 0

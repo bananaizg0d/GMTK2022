@@ -5,10 +5,12 @@ public class Item : MonoBehaviour
 {
     [Header("Item")]
     [SerializeField] Vector2 holdingOffset;
+    [SerializeField] GameObject pickableHint;
 
     protected Collider2D col;
     protected EquipmentSystem character;
     internal GameObject hintObject;
+    
 
     protected virtual void Awake()
     {
@@ -21,6 +23,7 @@ public class Item : MonoBehaviour
         transform.SetParent(character.itemHolder.transform);
         transform.localPosition = holdingOffset;
         transform.localEulerAngles = Vector2.zero;
+        pickableHint.gameObject.SetActive(false);
     }
     public virtual void WasTossedAway()
     {
@@ -29,6 +32,7 @@ public class Item : MonoBehaviour
         transform.position = character.transform.position.AddTo(y: -1);
         transform.rotation = Quaternion.identity;
         character = null;
+        pickableHint.gameObject.SetActive(true);
     }
     public virtual void Use() { }
     public virtual void StopUsing() { }
