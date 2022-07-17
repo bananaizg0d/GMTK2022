@@ -71,7 +71,8 @@ public class Health : MonoBehaviour
 
         timeAfterFirstHit = 0;
         startCountingTime = true;
-        invulnerable = true;
+        if (InvulnerabilityAfterHit > 0)
+            invulnerable = true;
 
         currentHealth -= (int)(amount * damageModifier);
 

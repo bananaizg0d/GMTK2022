@@ -2570,6 +2570,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7378826178220668228, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 2802896194184839393, guid: ef2c8cb954718e84f8b1cbcbf2285290, type: 3}
     - target: {fileID: 7378826178220668248, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
       propertyPath: animator
       value: 
@@ -4722,6 +4726,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3090440201818331136, guid: b4d6e8a094b872046aba9d1621a403a4, type: 3}
+      propertyPath: weight
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3090440201818331137, guid: b4d6e8a094b872046aba9d1621a403a4, type: 3}
       propertyPath: m_Name
       value: PostP
@@ -5364,7 +5372,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7779112, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
