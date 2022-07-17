@@ -4,6 +4,7 @@ public class TopDownMovement : MonoBehaviour, IBuffable
 {
     public const string PLAYERTAG = "Player";
 
+    [SerializeField] Animator animator;
     [SerializeField] float movementSpeed;
     [SerializeField] Rigidbody2D rb;
 
@@ -26,6 +27,8 @@ public class TopDownMovement : MonoBehaviour, IBuffable
         movementInput.x = Input.GetAxisRaw("Horizontal");
         movementInput.y = Input.GetAxisRaw("Vertical");
         movementInput = movementInput.normalized;
+
+        animator.SetBool("IsMoving", movementInput.magnitude != 0);
 
         var mouseDir = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var dir = (Vector2)mouseDir - (Vector2)transform.position;
