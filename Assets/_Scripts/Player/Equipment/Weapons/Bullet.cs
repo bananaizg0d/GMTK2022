@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] protected Rigidbody2D rb;
     [SerializeField] SpriteRenderer spriteRend;
-    [SerializeField] AudioSource audioSrc;
+    [SerializeField] protected AudioSource audioSrc;
 
     protected GameObject holder;
 
