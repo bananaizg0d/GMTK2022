@@ -10,6 +10,7 @@ public class RollingDiceVisual : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] Color hitZoneColor;
     [SerializeField] List<Buff> buffSprites;
+    [SerializeField] AudioSource src;
 
 
 
@@ -25,6 +26,8 @@ public class RollingDiceVisual : MonoBehaviour
             if (buff.isBuff == isBuff && buff.type == type)
             {
                 buffImg.gameObject.SetActive(true);
+                if (buff.clip != null)
+                    src.PlayOneShot(buff.clip);
                 buffImg.sprite = buff.sprite;
                 mainImg.color = Color.white;
                 Invoke(nameof(OnDisableBuff), buff.buffTime);
