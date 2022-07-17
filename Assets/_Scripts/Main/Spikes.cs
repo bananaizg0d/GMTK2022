@@ -9,58 +9,32 @@ public class Spikes : MonoBehaviour
     [SerializeField] AudioSource src;
     [SerializeField] AudioClip onStepSound, activationSound;
 
-    List<Health> healthToDamage;
-
-    void Awake()
-    {
-        healthToDamage = new List<Health>();
-    }
+    int currentNum;
 
     void Update()
     {
-        animator.SetBool("IsStandingOnSpikes", healthToDamage.Count > 0);
+        animator.SetBool("IsStandingOnSpikes", currentNum > 0);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Health health))
         {
-            if (healthToDamage.Count == 0)
-            {
-                animator.SetBool("IsStandingOnSpikes", true);
-                src.PlayOneShot(onStepSound);
-            }
-            healthToDamage.Add(health);
+            health.TakeDamage(damage);
+            src.Play();
+            currentNum++;
         }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        foreach (var health in healthToDamage)
+        if (collision.TryGetComponent(out Health health))
         {
-            if (collision.transform == health.transform)
+            currentNum--;
+            if (currentNum <= 0)
             {
-                healthToDamage.Remove(health);
+                animator.SetBool("IsStandingOnSpikes", false);
             }
         }
-
-        if (healthToDamage.Count == 0)
-        {
-            animator.SetBool("IsStandingOnSpikes", false);
-        }
-    }
-
-    public void AELDealDamage()
-    {
-        src.PlayOneShot(activationSound);
-        foreach(var health in healthToDamage)
-        {
-            health.TakeDamage(damage);
-        }
-    }
-
-    public void AELSpikesAudio()
-    {
-        src.Play();
     }
 }
