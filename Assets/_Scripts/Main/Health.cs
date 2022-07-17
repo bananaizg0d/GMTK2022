@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
     [SerializeField] float InvulnerabilityAfterHit;
     public int maxHealth;
     public bool isStatic;
+    [SerializeField] GameObject invBubble;
     public int currentHealth { get; private set; }
 
     public bool isDead { get; private set; }
@@ -114,9 +115,14 @@ public class Health : MonoBehaviour
 
     public void MakeInvulnirable(float time)
     {
+        invBubble.gameObject.SetActive(true);
         invulnerable = true;
         Invoke(nameof(ResetInvul), time);
     }
 
-    void ResetInvul() => invulnerable = false;
+    void ResetInvul()
+    {
+        invulnerable = false;
+        invBubble.gameObject.SetActive(false);
+    }
 }

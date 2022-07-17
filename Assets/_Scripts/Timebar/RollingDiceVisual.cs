@@ -6,7 +6,7 @@ using DG.Tweening;
 public class RollingDiceVisual : MonoBehaviour
 {
     public const string TAG = "RollingDice";
-    [SerializeField] Image img;
+    [SerializeField] Image mainImg, buffImg;
     [SerializeField] Animator anim;
     [SerializeField] Color hitZoneColor;
     [SerializeField] List<Buff> buffSprites;
@@ -15,7 +15,7 @@ public class RollingDiceVisual : MonoBehaviour
 
     public void OnDiceStart(float time)
     {
-        img.color = Color.white;
+        mainImg.color = Color.white;
     }
 
     public void OnCheckSuccess(float time, bool isBuff, int type)
@@ -24,29 +24,24 @@ public class RollingDiceVisual : MonoBehaviour
         {
             if (buff.isBuff == isBuff && buff.type == type)
             {
-                anim.enabled = false;
-                img.sprite = buff.sprite;
-                img.color = Color.white;
-                Invoke(nameof(DisableVisuals), buff.buffTime);
+                buffImg.gameObject.SetActive(true);
+                buffImg.sprite = buff.sprite;
+                mainImg.color = Color.white;
+                Invoke(nameof(OnDisableBuff), buff.buffTime);
             }
         }
-
     }
 
-    void DisableVisuals()
+    void OnDisableBuff()
     {
-        img.color = new Color(0, 0, 0, 0);
+        buffImg.gameObject.SetActive(false);
     }
 
     public void OnHitZoneEnter(float time)
     {
-        img.color = hitZoneColor;
+        mainImg.color = hitZoneColor;
     }
 
-    void ResetColor()
-    {
-        img.color = Color.white;
-    }
 
     [System.Serializable]
     class Buff
