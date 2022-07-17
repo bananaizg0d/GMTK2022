@@ -1252,6 +1252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LEVEL COMPLETED SCREEN
       objectReference: {fileID: 0}
+    - target: {fileID: 3620087882711696317, guid: 9e7e5e2760afaaa4397c8a3cd343815c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4956097500658485100, guid: 9e7e5e2760afaaa4397c8a3cd343815c, type: 3}
       propertyPath: timer
       value: 
