@@ -326,7 +326,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   hitPoint: {fileID: 1584414415}
-  hitPoint2: {fileID: 0}
+  hitPoint2: {fileID: 8933834621262613498}
   rb: {fileID: 2108511036}
   destinationSetter: {fileID: 2720864799523658801}
   aiPath: {fileID: 2720864799523658800}
