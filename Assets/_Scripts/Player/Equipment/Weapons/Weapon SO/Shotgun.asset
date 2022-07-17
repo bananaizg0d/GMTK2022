@@ -19,7 +19,7 @@ MonoBehaviour:
   shotgunSpreadAngle: 7
   shotgunMaxBulletsPershot: 5
   delayBetweenShots: 0
-  delayBetweenShotsNonAuto: 1
+  delayBetweenShotsNonAuto: 0.5
   damage: 30
   bulletSpeed: 15
   bulletGravityScale: 0
