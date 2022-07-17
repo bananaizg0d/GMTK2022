@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 448832092}
-  damagedColor: {r: 1, g: 1, b: 1, a: 0.7882353}
+  damagedColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
   timeToBlink: 1
   delayBetweenBlinks: 0.2
 --- !u!95 &7572171351683216917
@@ -307,6 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   updateMode: 1
   updateTime: 0
+  gfx: {fileID: 7211357821288810235}
   staticTurret: {fileID: 0}
   visibleLayers:
     serializedVersion: 2
@@ -330,6 +331,8 @@ MonoBehaviour:
   delayBetweenAttacks: 2
   isRanged: 0
   isStatic: 0
+  isExplosive: 0
+  explosionRadius: 0
   bulletSpeed: 0
   bulletDamage: 0
   bulletPrefab: {fileID: 0}
@@ -355,7 +358,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 829458436}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_TargetAssemblyTypeName: EnemyAI, Assembly-CSharp
         m_MethodName: OnDamage
         m_Mode: 1
         m_Arguments:

@@ -19,17 +19,14 @@ public class DiceScript : MonoBehaviour
 
     public int powerRandomizer;
 
-    public GameObject DiceSlider;
-
     public float debugTimer;
 
-    TimeBar timeBar;
+    RollingDiceVisual timeBar;
 
     private void Start()
     {
-        DiceSlider = GameObject.Find("DiceSlider");
-        timeBar = DiceSlider.GetComponent<TimeBar>();
-
+        var obj = GameObject.FindWithTag(RollingDiceVisual.TAG);
+        timeBar = obj.GetComponent<RollingDiceVisual>();
         diceCycle = diceCD + diceHitZone + diceStartZone;
         StartCoroutine(DiceNumerator());
     }
@@ -74,7 +71,7 @@ public class DiceScript : MonoBehaviour
 
     public void DiceStart()
     {
-        timeBar.FillTimeBar(diceHitZone + diceStartZone);
+        timeBar.OnDiceStart(diceHitZone + diceStartZone);
         Invoke(nameof(DiceHitZone), diceStartZone);
 
     }
@@ -82,7 +79,7 @@ public class DiceScript : MonoBehaviour
     public void DiceHitZone()
     {
         src.Play();
-        timeBar.OnHitZoneEnter();
+        timeBar.OnHitZoneEnter(diceHitZone);
         Invoke(nameof(DiceEnd), diceHitZone);
         diceHitable = true;
     }
@@ -93,7 +90,6 @@ public class DiceScript : MonoBehaviour
         CheckSuccess();
 
     }
-
     public void CheckSuccess()
     {
         if (diceSucceded)
@@ -104,10 +100,12 @@ public class DiceScript : MonoBehaviour
         {
             Debuff();
         }
-        diceSucceded = false;
-        diceCD = Random.Range(4, 8);
 
-        timeBar.EmptyTimeBar(diceCD);
+        diceCD = Random.Range(4, 8);
+        timeBar.OnCheckSuccess(diceCD, diceSucceded, powerRandomizer);
+
+        diceSucceded = false;
+
         diceStartZone = Random.Range(1, 4);
         diceCycle = diceCD + diceHitZone + diceStartZone;
 
@@ -116,14 +114,14 @@ public class DiceScript : MonoBehaviour
 
     private void Buff()
     {
-        powerRandomizer = Random.Range(0, 3);
+        powerRandomizer = Random.Range(0, 6);
 
         powerUp.ChoosePowerUp(powerRandomizer, true);
     }
 
     private void Debuff()
     {
-        powerRandomizer = Random.Range(0, 3);
+        powerRandomizer = Random.Range(0, 4);
 
         powerUp.ChoosePowerUp(powerRandomizer, false);
     }

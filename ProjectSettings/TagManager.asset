@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - SafeZone
+  - AIManager
+  - RollingDice
   layers:
   - Default
   - TransparentFX

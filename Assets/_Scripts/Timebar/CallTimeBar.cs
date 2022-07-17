@@ -10,7 +10,7 @@ public class CallTimeBar : MonoBehaviour
     void Start()
     {
         //ref
-        TimeBar timebar = gameObject.GetComponent<TimeBar>();
+        RollingDiceVisual timebar = gameObject.GetComponent<RollingDiceVisual>();
 
         //enable timebar
         timebar.enabled = true;

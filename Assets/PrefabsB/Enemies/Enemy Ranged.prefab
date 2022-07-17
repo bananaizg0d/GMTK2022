@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 448832092}
-  damagedColor: {r: 1, g: 1, b: 1, a: 0.8}
+  damagedColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
   timeToBlink: 1
   delayBetweenBlinks: 0.2
 --- !u!1 &1584414414
@@ -318,6 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   updateMode: 1
   updateTime: 0
+  gfx: {fileID: 6499127620188406210}
   staticTurret: {fileID: 0}
   visibleLayers:
     serializedVersion: 2
@@ -341,6 +342,8 @@ MonoBehaviour:
   delayBetweenAttacks: 1
   isRanged: 1
   isStatic: 0
+  isExplosive: 0
+  explosionRadius: 0
   bulletSpeed: 7
   bulletDamage: 10
   bulletPrefab: {fileID: 6871634380604022873, guid: 10b9cc4b9510630439d5ac38fb00ffe7, type: 3}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PowerUp : MonoBehaviour
 {
@@ -13,13 +14,27 @@ public class PowerUp : MonoBehaviour
     [Header("HitBox")]
     [SerializeField] float hitboxBuffValue;
     [SerializeField] float hitboxDebuffValue;
+    [Header("Bullets Around")]
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] int bullets;
+    [SerializeField] float spreadAngle;
+    [SerializeField] int damage;
+    [SerializeField] float bulletSpeed;
+    [SerializeField] float shootingDelay;
+    [SerializeField] float bulletBuffTime;
+    [Header("Kill enemies")]
+
+
 
     //player components
     [Header("Player Components")]
     [SerializeField] EquipmentSystem es;
     [SerializeField] TopDownMovement movement;
     [SerializeField] Hitbox hitbox;
+    [SerializeField] Health playerHealth;
 
+
+    AIManager aiManager;
     /*
      0 = speed
      1 = damage
@@ -27,12 +42,15 @@ public class PowerUp : MonoBehaviour
      3... later
      */
 
-    public void ChoosePowerUp(int buff, bool isBuff)
+    void Awake()
+    {
+        aiManager = GameObject.FindWithTag(AIManager.TAG).GetComponent<AIManager>();
+    }
+
+    public void ChoosePowerUp(int buffType, bool isBuff)
     {
         IBuffable componentToBuff;
         float buffValue;
-
-        string debugMessage = "";
 
         if (es == null || movement == null || hitbox == null) 
         {
@@ -40,43 +58,45 @@ public class PowerUp : MonoBehaviour
             return;
         }
 
-        switch (buff)
+        switch (buffType)
         {
             case 0:
-                debugMessage += "Speed";
                 componentToBuff = movement;
                 buffValue = speedBuffValue;
                 if (!isBuff)
                     buffValue = speedDebuffValue;
+                componentToBuff.Buff(buffValue, buffTime);
                 break;
-
             case 1:
-                debugMessage += "Damage";
                 componentToBuff = es;
                 buffValue = damageBuffValue;
                 if (!isBuff)
                     buffValue = damageDebuffValue;
+                componentToBuff.Buff(buffValue, buffTime);
                 break;
             case 2:
-                debugMessage += "HitBox";
                 componentToBuff = hitbox;
 
                 buffValue = hitboxBuffValue;
                 if (!isBuff)
                     buffValue = hitboxDebuffValue;
+                componentToBuff.Buff(buffValue, buffTime);
+                break;
+            case 3:
+                if (isBuff)
+                    StartCoroutine(KillEnemies());
+                else
+                    aiManager.MakeInvulnirable(3, 5);
+                break;
+            case 4:
+                playerHealth.MakeInvulnirable(buffTime);
+                break;
+            case 5:
+                StartCoroutine(ShootInEveryDirection());
                 break;
             default:
                 return;
         }
-
-        if (isBuff)
-            debugMessage += " Buff";
-        else
-            debugMessage += " Debuff";
-
-        print(debugMessage);
-
-        componentToBuff.Buff(buffValue, buffTime);
 
         /*
          speed up - 5 s
@@ -85,5 +105,42 @@ public class PowerUp : MonoBehaviour
          unlimited dash/ defenesive - 5s
          hitbox decreased
          */
+    }
+
+    IEnumerator KillEnemies()
+    {
+        float curtime = 0;
+
+        while (curtime <= buffTime)
+        {
+            aiManager.KillClosestEnemy(transform.position);
+            yield return new WaitForSeconds(1);
+            curtime += 1;
+        }
+    }
+
+    IEnumerator ShootInEveryDirection()
+    {
+        float curTime = 0;
+
+        while(curTime < bulletBuffTime)
+        {
+            ShotgunShot();
+            yield return new WaitForSeconds(shootingDelay);
+            curTime += shootingDelay;
+        }
+    }
+
+    void ShotgunShot()
+    {
+        GameObject bullet;
+        Bullet bulletComp;
+        for (int i = 0; i < bullets; i++)
+        {
+            bullet = Instantiate(bulletPrefab, transform.position, transform.rotation, null);
+            bullet.transform.Rotate(Vector3.forward, (i - Mathf.FloorToInt(bullets * 0.5f)) * spreadAngle);
+            bulletComp = bullet.GetComponent<Bullet>();
+            bulletComp.Init(transform.parent.gameObject, damage, bulletSpeed, 1);
+        }
     }
 }
