@@ -50,5 +50,6 @@ public class RollingDiceVisual : MonoBehaviour
         public int type;
         public bool isBuff;
         public float buffTime;
+        public AudioClip clip;
     }
 }
