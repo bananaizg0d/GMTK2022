@@ -52,7 +52,7 @@ public class Bullet : MonoBehaviour
 
         collided = true;
 
-        if (spriteRend != null)
+        if (spriteRend != null && !Pierce)
             spriteRend.enabled = false;
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
