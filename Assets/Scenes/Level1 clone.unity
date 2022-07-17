@@ -1704,6 +1704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1604206090}
+  canFollowPlayer: 0
 --- !u!4 &777189951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6030385353298622345, guid: 6d56c78a32e4efb4b9b62b07a50271da, type: 3}
@@ -2757,6 +2758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1604206090}
+  canFollowPlayer: 0
 --- !u!4 &1341605006
 Transform:
   m_ObjectHideFlags: 0
@@ -3151,8 +3153,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66c1bee9994807449902703ef33f101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   movementSpeed: 8
   rb: {fileID: 1604206094}
+  dashSpeed: 0
+  dashTime: 0
+  dashCooldown: 0
 --- !u!70 &1604206093
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3216,8 +3222,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e9d130f49a95f468067f8a55702cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gfx: {fileID: 0}
   mainCollider: {fileID: 1604206093}
   GFX: {fileID: 681748122}
+  explosionPrefab: {fileID: 0}
 --- !u!1001 &1694539153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3604,7 +3612,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7771639, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
