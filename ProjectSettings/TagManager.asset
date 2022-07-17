@@ -8,6 +8,7 @@ TagManager:
   - SafeZone
   - AIManager
   - RollingDice
+  - UI
   layers:
   - Default
   - TransparentFX

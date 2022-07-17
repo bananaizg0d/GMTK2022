@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
+
 public class EquipmentSystem : MonoBehaviour, IFreezible, IBuffable
 {
     [SerializeField] internal Transform itemHolder;
@@ -12,10 +14,20 @@ public class EquipmentSystem : MonoBehaviour, IFreezible, IBuffable
 
     Vector3 mouseDir;
 
+    public static bool LevelEnded;
+
     public float Modifier { get; set; } = 1;
+
+    void Awake()
+    {
+        LevelEnded = false;
+    }
 
     void Update()
     {
+        if (LevelEnded)
+            return;
+
         if (Time.timeScale == 0)
             return;
 

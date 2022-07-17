@@ -10,6 +10,7 @@ public class ExitScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI textObject;
     AIManager aiManager;
 
+    bool finished;
     bool enemiesDead;
 
     void Awake()
@@ -48,9 +49,21 @@ public class ExitScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != TopDownMovement.PLAYERTAG)
+        if (collision.tag != TopDownMovement.PLAYERTAG && finished)
             return;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (coll.isTrigger == false)
+            return;
+
+        finished = true;
+
+        var egs = GameObject.FindWithTag("UI");
+        if (egs!= null)
+        {
+            egs.GetComponent<UIBehaiv>().EGS();
+        }
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        
     }
 }

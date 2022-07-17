@@ -638,6 +638,7 @@ GameObject:
   - component: {fileID: 4839362504439118824}
   - component: {fileID: 4839362504439118825}
   - component: {fileID: 4839362504439118822}
+  - component: {fileID: 1757493589}
   m_Layer: 5
   m_Name: GAME OVER SCREEN
   m_TagString: Untagged
@@ -726,6 +727,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1757493589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4839362504439118820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1448172333841c4ea888c6d0fd3d6ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4839362504567178316
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,7 +961,7 @@ GameObject:
   - component: {fileID: 4839362504908024517}
   m_Layer: 0
   m_Name: UI
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1344,11 +1357,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6259710330283458897, guid: 9e7e5e2760afaaa4397c8a3cd343815c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3878272567185780245}
+    - target: {fileID: 6259710330283458897, guid: 9e7e5e2760afaaa4397c8a3cd343815c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e7e5e2760afaaa4397c8a3cd343815c, type: 3}
 --- !u!224 &571753629573028395 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1346877315, guid: 9e7e5e2760afaaa4397c8a3cd343815c, type: 3}
+  m_PrefabInstance: {fileID: 571753630382304680}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3878272567185780245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3620087882711696317, guid: 9e7e5e2760afaaa4397c8a3cd343815c, type: 3}
   m_PrefabInstance: {fileID: 571753630382304680}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &5914257315898554037 stripped
