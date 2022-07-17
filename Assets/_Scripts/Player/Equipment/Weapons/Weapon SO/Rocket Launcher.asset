@@ -15,7 +15,11 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3675198323420388356, guid: 6897ebf75b35cab41ba1279b55f1e560, type: 3}
   sus: {fileID: 403334923738307957, guid: a93ed3c1744e33f40b450f5dbab37d92, type: 3}
   isAutomatic: 0
+  isShotgun: 0
+  shotgunSpreadAngle: 0
+  shotgunMaxBulletsPershot: 0
   delayBetweenShots: 0
+  delayBetweenShotsNonAuto: 2
   damage: 80
   bulletSpeed: 10
   bulletGravityScale: 0
