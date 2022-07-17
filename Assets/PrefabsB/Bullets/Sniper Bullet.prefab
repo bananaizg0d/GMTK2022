@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6871634380604022872, guid: 2b680265e0cd761449969d70a03da46b, type: 3}
+      propertyPath: Pierce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6871634380604022873, guid: 2b680265e0cd761449969d70a03da46b, type: 3}
       propertyPath: m_Name
       value: Sniper Bullet

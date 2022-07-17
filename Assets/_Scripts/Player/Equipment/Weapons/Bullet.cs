@@ -20,11 +20,12 @@ public class Bullet : MonoBehaviour
 
     bool collided;
 
+    public bool Pierce;
+
     void Start()
     {
         rb.AddForce(transform.right * speed, ForceMode2D.Impulse);
         StartCoroutine(DestroyWhenTooFar());
-
     }
 
     public void Init(GameObject holder, int damage, float speed, float modifier = 1)
@@ -61,7 +62,8 @@ public class Bullet : MonoBehaviour
 
         //StartCoroutine(PlayEffects(isStaticObject));
 
-        Destroy(gameObject);
+        if (!Pierce)
+            Destroy(gameObject);
     }
 
     protected virtual bool RegisterHit(Collider2D collision)
