@@ -16,10 +16,10 @@ MonoBehaviour:
   sus: {fileID: 0}
   isAutomatic: 0
   isShotgun: 1
-  shotgunSpreadAngle: 9
-  shotgunMaxBulletsPershot: 30
+  shotgunSpreadAngle: 7
+  shotgunMaxBulletsPershot: 5
   delayBetweenShots: 0
-  damage: 4
+  damage: 30
   bulletSpeed: 15
   bulletGravityScale: 0
   shootSFX: {fileID: 0}
