@@ -2552,50 +2552,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 669076216188765347, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
-      propertyPath: damage
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 669076216188765347, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
-      propertyPath: bullets
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 669076216188765347, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
-      propertyPath: bulletSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 669076216188765347, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
-      propertyPath: spreadAngle
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 669076216188765347, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 6871634380604022873, guid: 27451ba6934a6fc4c8bf4375e6864861, type: 3}
-    - target: {fileID: 669076216188765347, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
-      propertyPath: shootingDelay
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 669076216188765347, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
-      propertyPath: bulletBuffTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7272550675109038401, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7272550675109038415, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7272550675109038415, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7272550675109038415, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7378826178220668253, guid: 181571897c20fd7448b7487fab903ed6, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5367,7 +5323,7 @@ GameObject:
   - component: {fileID: 2053124033}
   m_Layer: 5
   m_Name: RollingDice
-  m_TagString: Untagged
+  m_TagString: RollingDice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5465,7 +5421,47 @@ MonoBehaviour:
   img: {fileID: 2053124031}
   anim: {fileID: 2053124030}
   hitZoneColor: {r: 0.027350426, g: 1, b: 0, a: 1}
-  buffSprites: []
+  buffSprites:
+  - sprite: {fileID: 21300000, guid: faf096bb1571cde43be966a9187f693f, type: 3}
+    type: 0
+    isBuff: 1
+    buffTime: 5
+  - sprite: {fileID: 21300000, guid: dae7c149af560104484530ce340e4e3b, type: 3}
+    type: 0
+    isBuff: 0
+    buffTime: 5
+  - sprite: {fileID: 21300000, guid: 2d6aeefb836c6b746951debc72047d28, type: 3}
+    type: 1
+    isBuff: 1
+    buffTime: 5
+  - sprite: {fileID: 21300000, guid: 5cd9d71ca884056499b3728c32abadb8, type: 3}
+    type: 1
+    isBuff: 0
+    buffTime: 5
+  - sprite: {fileID: 21300000, guid: a4ad37814ee07d847adba1cdd200dca5, type: 3}
+    type: 2
+    isBuff: 1
+    buffTime: 5
+  - sprite: {fileID: 21300000, guid: b7ff03aa0df30da4197b4350e3edfef1, type: 3}
+    type: 2
+    isBuff: 0
+    buffTime: 5
+  - sprite: {fileID: 21300000, guid: 5b811c077177e3247a56c26b67b74252, type: 3}
+    type: 3
+    isBuff: 1
+    buffTime: 5
+  - sprite: {fileID: 0}
+    type: 3
+    isBuff: 0
+    buffTime: 5
+  - sprite: {fileID: 0}
+    type: 4
+    isBuff: 1
+    buffTime: 5
+  - sprite: {fileID: 21300000, guid: 9883c59190efd61408b3b26ea03b1b98, type: 3}
+    type: 5
+    isBuff: 1
+    buffTime: 3
 --- !u!1001 &2062198237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6047,11 +6043,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1481941241113905444, guid: a3f36ceb689e9174e96350b9a8697bee, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1481941241212579661, guid: a3f36ceb689e9174e96350b9a8697bee, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1481941241340319263, guid: a3f36ceb689e9174e96350b9a8697bee, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4839362504908024514, guid: a3f36ceb689e9174e96350b9a8697bee, type: 3}
       propertyPath: m_Name
