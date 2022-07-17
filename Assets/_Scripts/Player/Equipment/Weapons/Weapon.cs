@@ -54,8 +54,7 @@ public class Weapon : Item
 
     public override void Aim(Vector2 aimPoint)
     {
-        var dir = aimPoint - (Vector2)transform.position;
-        transform.right = dir;
+
     }
 
     public override void WasTossedAway()

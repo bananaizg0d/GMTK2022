@@ -27,9 +27,6 @@ public class EquipmentSystem : MonoBehaviour, IFreezible, IBuffable
             Use();
         if (Input.GetMouseButtonUp(0))
             StopUsing();
-
-        mouseDir = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Aim(mouseDir);
     }
 
     protected virtual void OnEnable()
@@ -98,14 +95,6 @@ public class EquipmentSystem : MonoBehaviour, IFreezible, IBuffable
             return;
 
         currentItem.StopUsing();
-    }
-
-    public virtual void Aim(Vector2 aimDirection)
-    {
-        if (currentItem == null)
-            return;
-
-        currentItem.Aim(aimDirection);
     }
 
     public Item GetBestItem()

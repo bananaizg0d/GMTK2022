@@ -27,6 +27,10 @@ public class TopDownMovement : MonoBehaviour, IBuffable
         movementInput.y = Input.GetAxisRaw("Vertical");
         movementInput = movementInput.normalized;
 
+        var mouseDir = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var dir = (Vector2)mouseDir - (Vector2)transform.position;
+        transform.up = dir;
+
         if (canDash && Input.GetKeyDown(KeyCode.Space))
             Dash();
     }

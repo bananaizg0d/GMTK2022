@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdingOffset: {x: 0, y: 0}
+  pickableHint: {fileID: 5002021212540128987}
   stats: {fileID: 11400000, guid: 099d1fe32b28fd34c9ea5ead8de5bb75, type: 2}
   shootingPoint: {fileID: 2648516988346506599}
   shootEffect: {fileID: 2648516989119801442}
@@ -104,5 +105,10 @@ MonoBehaviour:
 --- !u!198 &2648516989119801442 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5195059377260591697, guid: 0a265674ecdd83541a3615ff43bf7471, type: 3}
+  m_PrefabInstance: {fileID: 7843549617323987507}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5002021212540128987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3004847749395061992, guid: 0a265674ecdd83541a3615ff43bf7471, type: 3}
   m_PrefabInstance: {fileID: 7843549617323987507}
   m_PrefabAsset: {fileID: 0}
