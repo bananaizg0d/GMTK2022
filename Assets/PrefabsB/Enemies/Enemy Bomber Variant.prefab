@@ -12,6 +12,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 0226cc9402ae91a4e8bf21848ff14266, type: 3}
     - target: {fileID: 829458436, guid: 6831eb427daedff4bb82fd31245608f4, type: 3}
+      propertyPath: gfx
+      value: 
+      objectReference: {fileID: 3358522524342665560}
+    - target: {fileID: 829458436, guid: 6831eb427daedff4bb82fd31245608f4, type: 3}
       propertyPath: isExplosive
       value: 1
       objectReference: {fileID: 0}
@@ -22,6 +26,10 @@ PrefabInstance:
     - target: {fileID: 829458436, guid: 6831eb427daedff4bb82fd31245608f4, type: 3}
       propertyPath: explosionRadius
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 829458437, guid: 6831eb427daedff4bb82fd31245608f4, type: 3}
+      propertyPath: maxHealth
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2720864799523658802, guid: 6831eb427daedff4bb82fd31245608f4, type: 3}
       propertyPath: m_Name
@@ -71,9 +79,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7211357821288810235, guid: 6831eb427daedff4bb82fd31245608f4, type: 3}
+      propertyPath: damagedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7211357821288810235, guid: 6831eb427daedff4bb82fd31245608f4, type: 3}
+      propertyPath: damagedColor.b
+      value: 0.38679248
+      objectReference: {fileID: 0}
+    - target: {fileID: 7211357821288810235, guid: 6831eb427daedff4bb82fd31245608f4, type: 3}
+      propertyPath: damagedColor.g
+      value: 0.38679248
+      objectReference: {fileID: 0}
+    - target: {fileID: 7211357821288810235, guid: 6831eb427daedff4bb82fd31245608f4, type: 3}
+      propertyPath: damagedColor.r
+      value: 0.38679248
+      objectReference: {fileID: 0}
     - target: {fileID: 7572171351683216917, guid: 6831eb427daedff4bb82fd31245608f4, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 1c305cec3cc390d409ea42a16d9c1809, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6831eb427daedff4bb82fd31245608f4, type: 3}
+--- !u!114 &3358522524342665560 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7211357821288810235, guid: 6831eb427daedff4bb82fd31245608f4, type: 3}
+  m_PrefabInstance: {fileID: 5370610494366304163}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e12dbb17bb0b484984f5de027304ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

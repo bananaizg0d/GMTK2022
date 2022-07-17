@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAI : StateMachine
 {
     [Header("References")]
+    [SerializeField] GFXBehaivior gfx;
     [SerializeField] public Transform staticTurret;
     [SerializeField] LayerMask visibleLayers;
     [SerializeField] LayerMask damagableLayers;
@@ -182,6 +183,7 @@ public class EnemyAI : StateMachine
 
     public void OnDamage()
     {
+        StartCoroutine(gfx.Blink());
         gotHit = true;
         aiPath.canMove = false;
         Invoke(nameof(EnableMovement), stunOnDamageTime);

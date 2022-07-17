@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 7378826176322514383}
-  damagedColor: {r: 1, g: 1, b: 1, a: 0.78039217}
+  damagedColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
   timeToBlink: 1
   delayBetweenBlinks: 0.2
 --- !u!1 &7378826176728998328
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b58a75827b6e51042a9783ffc6d05214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InvulnerabilityAfterHit: 0.5
+  InvulnerabilityAfterHit: 1
   maxHealth: 100
   isStatic: 0
   _OnRegisterHit:

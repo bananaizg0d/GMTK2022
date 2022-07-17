@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.2735849, g: 0.045167312, b: 0.045167312, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4953967475412206547, guid: ede74126933203949be4f072765e4370, type: 3}
       propertyPath: m_Color.b
-      value: 0.03624218
+      value: 0.02032951
       objectReference: {fileID: 0}
     - target: {fileID: 4953967475412206547, guid: ede74126933203949be4f072765e4370, type: 3}
       propertyPath: m_Color.g
@@ -185,7 +185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4953967475412206547, guid: ede74126933203949be4f072765e4370, type: 3}
       propertyPath: m_Color.r
-      value: 0.5566038
+      value: 0.3207547
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4953967475146965036, guid: ede74126933203949be4f072765e4370, type: 3}
@@ -229,6 +229,7 @@ MonoBehaviour:
   rb: {fileID: 3675198323420388359}
   spriteRend: {fileID: 3675198323152953338}
   audioSrc: {fileID: 3675198323420388358}
+  explosionObject: {fileID: 0}
   explosionRadius: 2
   explosionForce: 8
   explosiveLayers:

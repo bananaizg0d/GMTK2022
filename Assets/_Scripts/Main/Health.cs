@@ -111,4 +111,12 @@ public class Health : MonoBehaviour
     {
         damageModifier = 1;
     }
+
+    public void MakeInvulnirable(float time)
+    {
+        invulnerable = true;
+        Invoke(nameof(ResetInvul), time);
+    }
+
+    void ResetInvul() => invulnerable = false;
 }

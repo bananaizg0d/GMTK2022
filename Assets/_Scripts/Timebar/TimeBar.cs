@@ -18,13 +18,27 @@ public class TimeBar : MonoBehaviour
 
     public void FillTimeBar(float time)
     {
+        ReenableTimeBar();
+        countdownBar.value = 0;
         countdownBar.DOValue(countdownBar.maxValue, time);
     }
 
     public void EmptyTimeBar(float time)
     {
         imageToChange.color = originalColor;
-        countdownBar.DOValue(countdownBar.minValue, time);
+        //countdownBar.DOValue(countdownBar.minValue, time);
+        foreach(Transform t in transform)
+        {
+            t.gameObject.SetActive(false);
+        }
+    }
+
+    void ReenableTimeBar()
+    {
+        foreach (Transform t in transform)
+        {
+            t.gameObject.SetActive(true);
+        }
     }
  
     public void OnHitZoneEnter()
