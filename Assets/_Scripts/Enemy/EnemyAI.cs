@@ -14,6 +14,7 @@ public class EnemyAI : StateMachine
     public AIDestinationSetter destinationSetter;
     public AIPath aiPath;
     public AIManager aiManager;
+    [SerializeField] GameObject explosionPrefab;
 
     Animator animator;
 
@@ -173,6 +174,7 @@ public class EnemyAI : StateMachine
 
     public void OnDie()
     {
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

@@ -384,6 +384,7 @@ MonoBehaviour:
   destinationSetter: {fileID: 2959289012639193706}
   aiPath: {fileID: 2959289012639193707}
   aiManager: {fileID: 0}
+  explosionPrefab: {fileID: 2802896194184839393, guid: ef2c8cb954718e84f8b1cbcbf2285290, type: 3}
   target: {fileID: 0}
   attackDamage: 10
   attackRadius: 1
