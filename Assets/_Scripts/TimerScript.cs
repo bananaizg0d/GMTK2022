@@ -6,7 +6,9 @@ public class TimerScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     float currentSeconds;
 
-    string finalTimerValue;
+    public string finalTimerValue;
+
+    public bool isStopped;
 
     void Start()
     {
@@ -16,7 +18,7 @@ public class TimerScript : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 || isStopped)
             return;
 
         currentSeconds += Time.unscaledDeltaTime;

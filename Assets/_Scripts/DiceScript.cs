@@ -23,8 +23,11 @@ public class DiceScript : MonoBehaviour
 
     RollingDiceVisual timeBar;
 
+    public bool canRoll;
+
     private void Start()
     {
+        canRoll = true;
         var obj = GameObject.FindWithTag(RollingDiceVisual.TAG);
         timeBar = obj.GetComponent<RollingDiceVisual>();
         diceCycle = diceCD + diceHitZone + diceStartZone;
@@ -50,7 +53,7 @@ public class DiceScript : MonoBehaviour
 
         yield return new WaitForSeconds(diceCD);
 
-        while (true)
+        while (canRoll)
         {
             DiceStart();
             yield return new WaitForSeconds(diceCycle);
@@ -71,6 +74,7 @@ public class DiceScript : MonoBehaviour
 
     public void DiceStart()
     {
+        if (!canRoll) return;
         timeBar.OnDiceStart(diceHitZone + diceStartZone);
         Invoke(nameof(DiceHitZone), diceStartZone);
 
@@ -78,6 +82,7 @@ public class DiceScript : MonoBehaviour
 
     public void DiceHitZone()
     {
+        if (!canRoll) return;
         src.Play();
         timeBar.OnHitZoneEnter(diceHitZone);
         Invoke(nameof(DiceEnd), diceHitZone);
@@ -86,6 +91,7 @@ public class DiceScript : MonoBehaviour
 
     public void DiceEnd()
     {
+        if (!canRoll) return;
         diceHitable = false;
         CheckSuccess();
 
