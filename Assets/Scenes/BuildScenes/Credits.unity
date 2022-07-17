@@ -622,16 +622,17 @@ MonoBehaviour:
   m_text: 'banana - programmer
 
 
-    Bronsolo - composer
+    Bronson Bragg - composer
 
 
-    IAmNotGameDev - programmer
-
-
-    Baudi
+    IAmNotGameDev
     - programmer
 
-'
+
+    Baudi - programmer
+
+
+    xpowerpuffgril - 2d artist'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4c62e6f9d860c984a821f56edb71fd87, type: 2}
   m_sharedMaterial: {fileID: -553087196717004681, guid: 4c62e6f9d860c984a821f56edb71fd87, type: 2}
@@ -717,7 +718,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -406, y: -94}
+  m_AnchoredPosition: {x: -406, y: -139}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7576794612594345259
