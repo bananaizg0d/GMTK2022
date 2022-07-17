@@ -53,12 +53,12 @@ public class Health : MonoBehaviour
     {
         TakeDamage(10);
     }
-    [ContextMenu("Kill")]
+
+#endif
     public void Kill()
     {
         TakeDamage(maxHealth);
     }
-#endif
 
     public void TakeDamage(int amount)
     {

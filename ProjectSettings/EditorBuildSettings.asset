@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/BuildScenes/Level4.unity
     guid: 769e8b5a3eef7b84a97943c786735aac
   - enabled: 1
+    path: Assets/Scenes/BuildScenes/Level5.unity
+    guid: 5098418674809f24f8ef07a6a2ff52ed
+  - enabled: 1
     path: Assets/Scenes/BuildScenes/Last Credits.unity
     guid: d3d70563ed927124d8f424114d963ec2
   m_configObjects: {}
