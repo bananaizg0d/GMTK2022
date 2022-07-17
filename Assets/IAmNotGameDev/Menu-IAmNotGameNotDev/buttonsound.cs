@@ -4,21 +4,16 @@ using UnityEngine;
 
 public class buttonsound : MonoBehaviour
 {
-    public AudioSource clicksound;
-    // Start is called before the first frame update
-    void Start()
+
+    public AudioSource audioSource;
+/*    public AudioClip audioClip;*/
+
+    public void playsound()
     {
-        
+/*        audioSource.clip = audioClip;*/
+        audioSource.Play();
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void PlaySound()
-    {
-        clicksound.Play();
-    }
 }
+
