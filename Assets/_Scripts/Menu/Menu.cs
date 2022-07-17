@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-
+    public GameObject canvas1;
+    public GameObject canvas2;
     public void Play()
     {
 
@@ -15,17 +16,28 @@ public class Menu : MonoBehaviour
     public void ControlM()
     {
 
-        SceneManager.LoadScene("Controls");
+        canvas1.SetActive(true);
     }
 
 
     public void Credits()
     {
 
-        SceneManager.LoadScene("Credits");
+        canvas2.SetActive(true);
     }
 
 
+
+    public void disablecanvas1()
+    {
+        canvas1.SetActive(false);
+
+    }
+
+    public void disablecanvas2()
+    {
+        canvas2.SetActive(false);
+    }
     public void Quit()
     {
         Application.Quit();
