@@ -85,7 +85,6 @@ public class DiceScript : MonoBehaviour
         timeBar.OnHitZoneEnter();
         Invoke(nameof(DiceEnd), diceHitZone);
         diceHitable = true;
-
     }
 
     public void DiceEnd()

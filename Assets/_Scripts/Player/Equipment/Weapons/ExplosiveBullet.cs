@@ -1,6 +1,7 @@
 using UnityEngine;
 public class ExplosiveBullet : Bullet
 {
+    [SerializeField] GameObject explosionObject;
     [SerializeField] float explosionRadius, explosionForce;
     [SerializeField] LayerMask explosiveLayers;
     
@@ -33,5 +34,10 @@ public class ExplosiveBullet : Bullet
         float distanceModifier = Mathf.Clamp(1 / Vector2.Distance(rb.position, rbToPush.position), 0.3f, 1);
 
         rbToPush.AddForce(dir * explosionForce * distanceModifier, ForceMode2D.Impulse);
+    }
+
+    void OnDestroy()
+    {
+        Instantiate(explosionObject, transform.position, Quaternion.identity);
     }
 }

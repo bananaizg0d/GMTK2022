@@ -105,6 +105,7 @@ public class Bullet : MonoBehaviour
         yield return null;
         yield return new WaitWhile(() => ps.isPlaying);
 
+
         Destroy(gameObject);
     }
 

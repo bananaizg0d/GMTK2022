@@ -28,7 +28,7 @@ public class Hitbox : MonoBehaviour, IBuffable
 
     public void OnDie()
     {
-        Instantiate(explosionPrefab, transform.position, transform.rotation);
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

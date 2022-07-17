@@ -174,7 +174,7 @@ public class EnemyAI : StateMachine
 
     public void OnDie()
     {
-        Instantiate(explosionPrefab, transform.position, transform.rotation);
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
