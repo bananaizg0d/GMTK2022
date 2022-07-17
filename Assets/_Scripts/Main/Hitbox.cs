@@ -5,6 +5,7 @@ public class Hitbox : MonoBehaviour, IBuffable
     [SerializeField] GFXBehaivior gfx;
     [SerializeField] CapsuleCollider2D mainCollider;
     [SerializeField] Transform GFX;
+    [SerializeField] GameObject explosionPrefab;
 
     Vector2 ccNormalSize;
     Vector2 gfxNormalSize;
@@ -27,6 +28,7 @@ public class Hitbox : MonoBehaviour, IBuffable
 
     public void OnDie()
     {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

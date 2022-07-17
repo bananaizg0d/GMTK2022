@@ -5,6 +5,7 @@ using UnityEngine;
 public class DiceScript : MonoBehaviour
 {
     [SerializeField] PowerUp powerUp;
+    [SerializeField] AudioSource src;
 
     public bool dicable = true;
     public bool diceHitable;
@@ -80,10 +81,10 @@ public class DiceScript : MonoBehaviour
 
     public void DiceHitZone()
     {
+        src.Play();
         timeBar.OnHitZoneEnter();
         Invoke(nameof(DiceEnd), diceHitZone);
         diceHitable = true;
-
     }
 
     public void DiceEnd()
