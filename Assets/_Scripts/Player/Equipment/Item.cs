@@ -34,6 +34,7 @@ public class Item : MonoBehaviour
         character = null;
         pickableHint.gameObject.SetActive(true);
     }
+
     public virtual void Use() { }
     public virtual void StopUsing() { }
 

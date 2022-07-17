@@ -29,6 +29,19 @@ public class Weapon : Item
         PlayShootEffects();
     }
 
+    void ShotgunShot()
+    {
+        GameObject bullet;
+        Bullet bulletComp;
+        for (int i = 0; i < stats.shotgunMaxBulletsPershot; i++)
+        {
+            bullet = Instantiate(stats.bulletPrefab, shootingPoint.position, shootingPoint.rotation, null);
+            bullet.transform.Rotate(Vector3.forward, (i - Mathf.FloorToInt(stats.shotgunMaxBulletsPershot * 0.5f)) * stats.shotgunSpreadAngle);
+            bulletComp = bullet.GetComponent<Bullet>();
+            bulletComp.Init(character.gameObject, stats.damage, stats.bulletSpeed, character.Modifier);
+        }
+    }
+
     protected virtual void PlayShootEffects()
     {
         shootEffect?.Play();
@@ -53,6 +66,12 @@ public class Weapon : Item
 
     public override void Use()
     {
+        if (stats.isShotgun)
+        {
+            ShotgunShot();
+            return;
+        }
+
         if (!stats.isAutomatic)
         {
             SingleShot();
