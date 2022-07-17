@@ -27,7 +27,8 @@ public class EnemyAI : StateMachine
     [SerializeField] float combatDistance;
     [SerializeField] float stunOnDamageTime;
     [SerializeField] public float delayBetweenAttacks;
-    [SerializeField] public bool isRanged, isStatic;
+    [SerializeField] public bool isRanged, isStatic, isExplosive;
+    [SerializeField] float explosionRadius;
 
     [Header("Bullet")]
     [SerializeField] float bulletSpeed;
@@ -97,8 +98,27 @@ public class EnemyAI : StateMachine
     {
         if (isRanged)
             RangedAttack();
+        else if (isExplosive)
+            Explode();
         else
             MeleeAttack();
+    }
+
+    void Explode()
+    {
+        var hit = Physics2D.OverlapCircleAll(transform.position, explosionRadius, damagableLayers);
+
+        if (hit.Length > 0)
+        {
+            foreach(var coll in hit)
+            {
+                if (coll.TryGetComponent(out Health health)){
+                    health.TakeDamage(bulletDamage);
+                }
+            }
+        }
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     void MeleeAttack()

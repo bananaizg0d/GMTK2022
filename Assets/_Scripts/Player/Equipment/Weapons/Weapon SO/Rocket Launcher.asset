@@ -20,7 +20,7 @@ MonoBehaviour:
   shotgunMaxBulletsPershot: 0
   delayBetweenShots: 0
   delayBetweenShotsNonAuto: 2
-  damage: 80
+  damage: 110
   bulletSpeed: 10
   bulletGravityScale: 0
   shootSFX: {fileID: 8300000, guid: f2c5967b6ccb8f34fb258f1963e1ac18, type: 3}
