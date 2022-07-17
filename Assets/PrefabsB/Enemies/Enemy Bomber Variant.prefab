@@ -31,6 +31,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 625334320689023182, guid: 6831eb427daedff4bb82fd31245608f4, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2720864799523658802, guid: 6831eb427daedff4bb82fd31245608f4, type: 3}
       propertyPath: m_Name
       value: Enemy Bomber Variant
