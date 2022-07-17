@@ -26,6 +26,12 @@ public class Bullet : MonoBehaviour
     {
         rb.AddForce(transform.right * speed, ForceMode2D.Impulse);
         StartCoroutine(DestroyWhenTooFar());
+        Invoke(nameof(DestroySelf), 3);
+    }
+
+    void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 
     public void Init(GameObject holder, int damage, float speed, float modifier = 1)
@@ -50,14 +56,17 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject == holder || collision.gameObject.layer == holder.layer)
             return;
 
-        collided = true;
+        
 
-        if (spriteRend != null && !Pierce)
+        if (spriteRend != null && !Pierce) 
             spriteRend.enabled = false;
-        rb.velocity = Vector2.zero;
-        rb.isKinematic = true;
-        transform.SetParent(collision.transform);
-
+        if (!Pierce)
+        {
+            collided = true;
+            rb.velocity = Vector2.zero;
+            rb.isKinematic = true;
+            transform.SetParent(collision.transform);
+        }
         bool isStaticObject = RegisterHit(collision);
 
         //StartCoroutine(PlayEffects(isStaticObject));
