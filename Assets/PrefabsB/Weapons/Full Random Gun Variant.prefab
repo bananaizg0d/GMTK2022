@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5195059377499693292, guid: 0a265674ecdd83541a3615ff43bf7471, type: 3}
       propertyPath: m_Name
-      value: Full Random Gun
+      value: Full Random Gun Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3177473830622751323, guid: 0a265674ecdd83541a3615ff43bf7471, type: 3}

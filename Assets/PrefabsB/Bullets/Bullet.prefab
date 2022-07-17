@@ -4994,10 +4994,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b6c3b271bed34439b86aabcb65b914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onDestroyEffect: {fileID: 4953967475109260649}
-  onDamageEffect: {fileID: 4953967475109260649}
-  onDestroySound: {fileID: 0}
-  onDamageSound: {fileID: 0}
+  onHitObstaclePS: {fileID: 0}
+  onHitBodyPS: {fileID: 0}
+  onHitObstacleAudio: {fileID: 0}
+  onHitBodyAudio: {fileID: 0}
   rb: {fileID: 4953967475146965038}
   spriteRend: {fileID: 4953967475412206547}
   audioSrc: {fileID: 4953967475146965039}
@@ -5012,7 +5012,7 @@ GameObject:
   - component: {fileID: 4953967475412206544}
   - component: {fileID: 4953967475412206547}
   m_Layer: 7
-  m_Name: Circle
+  m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5027,7 +5027,7 @@ Transform:
   m_GameObject: {fileID: 4953967475412206545}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2915949, y: 0.2915949, z: 0.2915949}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4953967475146965041}
@@ -5074,7 +5074,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb2dda220cc3450449f18b9902f22300, type: 3}
   m_Color: {r: 1, g: 0.96229744, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
