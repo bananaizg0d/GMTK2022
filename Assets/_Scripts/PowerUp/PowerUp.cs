@@ -42,7 +42,7 @@ public class PowerUp : MonoBehaviour
      3... later
      */
 
-    void Awake()
+    void Start()
     {
         aiManager = GameObject.FindWithTag(AIManager.TAG).GetComponent<AIManager>();
     }
