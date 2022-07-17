@@ -7,6 +7,7 @@ public class TopDownMovement : MonoBehaviour, IBuffable
     [SerializeField] Animator animator;
     [SerializeField] float movementSpeed;
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] AudioSource src;
 
     [Header("Dash")]
     [SerializeField] float dashSpeed;
@@ -78,6 +79,7 @@ public class TopDownMovement : MonoBehaviour, IBuffable
 
     void EnableDash()
     {
+        src.Play();
         canDash = true;
     }
 }
