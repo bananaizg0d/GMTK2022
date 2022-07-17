@@ -10,6 +10,9 @@ public class WeaponStatsSO : ScriptableObject
     [Header("Stats")]
     public ParticleSystem sus;
     public bool isAutomatic;
+    public bool isShotgun;
+    public float shotgunSpreadAngle;
+    public int shotgunMaxBulletsPershot;
     public float delayBetweenShots;
     public int damage;
     public float bulletSpeed;
